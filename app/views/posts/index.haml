@@ -1,0 +1,17 @@
+- unless @posts.nil?
+  - @posts.each do |post|
+
+    = render partial: 'title_and_subline', locals: { post: post}
+
+    .post-description
+      = markdown(truncate(post.description, length: 275))
+
+      - if post.description.length > 300
+        = link_to 'Lesen', post_path(post.id)
+
+
+    .pull-right= will_paginate @posts
+
+- else
+  = 'No Posts Yet'
+

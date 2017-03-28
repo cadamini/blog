@@ -1,0 +1,28 @@
+%head
+  %meta{:content => "text/html; charset=utf-8", "http-equiv" => "Content-Type"}/
+  = stylesheet_link_tag :application
+  = javascript_include_tag :application
+  = csrf_meta_tag
+
+  #wrap
+    .blog-header
+      = render partial: 'layouts/header'
+    .navigation
+      = render partial: 'layouts/navigation'
+      .flash_area
+        - if flash
+          = flash[:notice]
+          = flash[:error]
+
+    #container
+      .row
+        .col-md-8
+          = yield
+        .col-md-4
+          .search
+            = render partial: 'posts/search_form'
+
+    .footer
+      = render partial: 'layouts/footer'
+
+

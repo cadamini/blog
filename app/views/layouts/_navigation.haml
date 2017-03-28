@@ -1,0 +1,9 @@
+
+%ul
+  %li=link_to 'Blog', posts_path
+  - if current_user && current_user.admin?
+    %li= link_to 'Manage Posts', admin_index_path
+    %li= link_to 'Create Post', new_post_path
+    %li= link_to 'Create Category', new_category_path
+
+

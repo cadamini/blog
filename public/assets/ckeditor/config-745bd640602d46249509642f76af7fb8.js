@@ -1,0 +1,1 @@
+CKEDITOR.editorConfig=function(a){a.toolbarGroups=[{name:"tools"},{name:"basicstyles",groups:["basicstyles","cleanup"]},{name:"paragraph",groups:["list","align"]},{name:"styles"},{name:"others"}],a.removeButtons="Underline,Subscript,Superscript",a.extraPlugins="markdown",a.format_tags="p;h1;h2;h3;pre",a.removeDialogTabs="image:advanced;link:advanced"};

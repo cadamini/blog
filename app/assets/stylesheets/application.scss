@@ -1,0 +1,136 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "font-awesome";
+
+body,
+html {
+  padding:0;
+  line-height: 1.2em;
+  margin: 0 auto;
+  width: 100%;
+  color: #666;
+  font-family: 'Raleway',sans-serif;
+}
+
+.flash_area {
+  text-align: center;
+  background-color: whitesmoke;
+}
+
+#wrap {
+  width: 800px;
+  margin:0 auto;
+}
+
+.blog-header {
+  background-color: #e2f1f1;
+   padding: 26px 0 26px 0;
+   border: 1px solid #a5a5a5;
+   text-align: center;
+   font-size: 24px;
+   bottom: 0;
+ }s
+
+.search {
+  padding: 10px;
+  clear: both;
+}
+
+#container {
+  border-top: 1px solid #e2f1f1;
+  margin: 0px;
+  float:left;
+  line-height: 24px;
+  padding: 10px;
+}
+
+/*#sidebar {
+  float:right;
+  width: 200px;
+  height: 100%;
+}*/
+
+.footer {
+  background-color: #e2f1f1;
+  clear: both;
+  bottom: 0;
+  left:0;
+  border: 1px solid #a5a5a5;
+  margin: 40px 0 0 0;
+  padding: 20px 0 20px 0;
+  text-align: center;
+  font-size: 10px;
+  clear:both;
+ }
+
+span {
+  vertical-align: middle;
+}
+
+h1 {
+  font-size: 24px;
+  line-height: 28px;
+  margin: 0 10px 0 0;
+}
+
+h2 {
+  font-size: 22px;
+  font-weight: 800;
+  line-height: 24px;
+  margin: 0 0 24px;
+}
+
+p.title_subline {
+  font-size: 12px;
+}
+
+.navigation {
+  float: left;
+}
+
+a {
+  color: #666;
+  text-decoration: none; }
+
+a:hover {
+  color: #1c1c1c;
+  text-decoration: underline;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: #eee;
+}
+
+
+@media only screen and (max-width: 1170px) {
+  #wrap {
+    width: 80%;
+    margin:0 auto;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  #wrap {
+    width: 95%;
+    margin:0 auto;
+  }
+}
