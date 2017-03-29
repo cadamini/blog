@@ -1,17 +1,21 @@
-- unless @posts.nil?
-  - @posts.each do |post|
+.row
+  .col-md-8
+    - unless @posts.nil?
+      - @posts.each do |post|
 
-    = render partial: 'title_and_subline', locals: { post: post}
+        = render partial: 'title_and_subline', locals: { post: post}
 
-    .post-description
-      = markdown(truncate(post.description, length: 275))
+        .post-description
+          = markdown(truncate(post.description, length: 275))
 
-      - if post.description.length > 300
-        = link_to 'Lesen', post_path(post.id)
+          - if post.description.length > 300
+            = link_to 'Lesen', post_path(post.id)
 
 
-    .pull-right= will_paginate @posts
+        .pull-right= will_paginate @posts
 
-- else
-  = 'No Posts Yet'
-
+    - else
+      = 'No Posts Yet'
+  .col-md-4
+    .search
+      = render partial: 'posts/search_form'

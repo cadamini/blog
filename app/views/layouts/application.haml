@@ -8,19 +8,16 @@
     .blog-header
       = render partial: 'layouts/header'
     .navigation
-      = render partial: 'layouts/navigation'
+      .row
+        .col-md-8
+          = render partial: 'layouts/navigation'
       .flash_area
         - if flash
           = flash[:notice]
           = flash[:error]
 
     #container
-      .row
-        .col-md-8
-          = yield
-        .col-md-4
-          .search
-            = render partial: 'posts/search_form'
+      = yield
 
     .footer
       = render partial: 'layouts/footer'

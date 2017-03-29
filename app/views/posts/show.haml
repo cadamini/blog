@@ -1,31 +1,32 @@
+.row
+  .col-md-12
+    = render partial: 'title_and_subline', locals: { post: @post}
 
-= render partial: 'title_and_subline', locals: { post: @post}
+    .post-description
+      = markdown(@post.description)
 
-.post-description
-  = markdown(@post.description)
-
-%br
-= link_to "https://www.facebook.com/sharer/sharer.php?u=#{request.original_url}" do
-  .btn.btn-facebook
-    = fa_icon 'facebook-official'
-    = 'Share!'
-
-
-%p= 'Comments:'
-.hr_separator
-  - if @post.comments.any?
-    - @post.comments.each do |c|
-      %p
-        %small= "#{c.created_at.strftime("%Y-%m-%d")} >>"
-        = c.content
-        .hr_separator
-
-      - if current_user && current_user.admin?
-        .pull-right
-          = link_to 'X', post_comment_path(c.post_id, c), :method => :delete, confirm: "Are you sure?"
+    %br
+    = link_to "https://www.facebook.com/sharer/sharer.php?u=#{request.original_url}" do
+      .btn.btn-facebook
+        = fa_icon 'facebook-official'
+        = 'Share!'
 
 
-= form_for :comment, url: post_comments_path(post_id: @post.id), action: :new do |f|
-  = f.text_area :content, rows: 4, cols: 40
-  %br
-  = f.submit
+    %p= 'Comments:'
+    .hr_separator
+      - if @post.comments.any?
+        - @post.comments.each do |c|
+          %p
+            %small= "#{c.created_at.strftime("%Y-%m-%d")} >>"
+            = c.content
+            .hr_separator
+
+          - if current_user && current_user.admin?
+            .pull-right
+              = link_to 'X', post_comment_path(c.post_id, c), :method => :delete, confirm: "Are you sure?"
+
+
+    = form_for :comment, url: post_comments_path(post_id: @post.id), action: :new do |f|
+      = f.text_area :content, rows: 4, cols: 40
+      %br
+      = f.submit
