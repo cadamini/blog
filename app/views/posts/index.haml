@@ -11,11 +11,13 @@
             - if post.description.length > 300
               = link_to 'Lesen', post_path(post.id)
 
-
-      .pull-right= will_paginate @posts
-
     - else
       = 'No Posts Yet'
+
   .col-md-4
     .search
       = render partial: 'posts/search_form'
+
+.row
+  .col-md-8
+    #center-text= will_paginate @posts, page_links: false

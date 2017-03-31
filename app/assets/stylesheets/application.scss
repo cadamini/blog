@@ -90,11 +90,21 @@ p.title_subline {
 
 a {
   color: #666;
-  text-decoration: none; }
+  text-decoration: none;
+}
 
 a:hover {
   color: #1c1c1c;
   text-decoration: underline;
+}
+
+.previous_page, .next_page, {
+  padding: 2px;
+  border: 1px solid #eee;
+}
+
+.disabled {
+  color: #eee;
 }
 
 ul {
@@ -124,6 +134,10 @@ li a:hover {
   background-color: #e2f1f1;
   padding: 20px;
   margin: 0px 0px 20px 0;
+}
+
+#center-text {
+  text-align: center;
 }
 
 
