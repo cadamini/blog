@@ -8,9 +8,7 @@
     .blog-header
       = render partial: 'layouts/header'
     .navigation
-      .row
-        .col-md-8
-          = render partial: 'layouts/navigation'
+      = render partial: 'layouts/navigation'
       .flash_area
         - if flash
           = flash[:notice]
