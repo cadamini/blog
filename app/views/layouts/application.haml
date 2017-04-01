@@ -5,19 +5,26 @@
   = csrf_meta_tag
 
   #wrap
-    .blog-header
-      = render partial: 'layouts/header'
-    .navigation
+    .nav.navbar.navbar-fixed-top
       = render partial: 'layouts/navigation'
-      .flash_area
-        - if flash
-          = flash[:notice]
-          = flash[:error]
+    .flash_area
+      - if flash
+        = flash[:notice]
+        = flash[:error]
 
     #container
       = yield
 
-    .footer
-      = render partial: 'layouts/footer'
+.footer#center-text
 
+  = fa_icon "copyright"
+  = 'Christian Adamini 2017'
+  %br
+    - unless current_user
+      = link_to 'Login', new_user_session_path
+
+    - if current_user
+      = 'Logged in as:'
+      = current_user.email
+      = link_to 'Logout', destroy_user_session_path, method: :delete
 

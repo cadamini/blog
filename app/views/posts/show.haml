@@ -1,4 +1,7 @@
 .row
+  .col-md-4
+    .search
+      = render partial: 'posts/search_form'
   .col-md-8
     .post
       = render partial: 'title_and_subline', locals: { post: @post}
@@ -11,32 +14,23 @@
         .btn.btn-facebook
           = fa_icon 'facebook-official'
           = 'Share!'
-      %br
-      %br
-        = 'Kommentare:'
 
-      %br
-      - if @post.comments.any?
-        - @post.comments.each do |c|
+    = 'Kommentare:'
+    %hr
 
-          .comment-content
-            - if current_user && current_user.admin?
-              .pull-right= link_to 'delete', post_comment_path(c.post_id, c), :method => :delete, confirm: "Are you sure?"
-            %small= "#{c.created_at.strftime("%Y-%m-%d")}"
-            %br= c.content
-          %br
+    - if @post.comments.any?
+      - @post.comments.each do |c|
 
-  .col-md-4
-    .search
-      = render partial: 'posts/search_form'
+        .comment-content
+          - if current_user && current_user.admin?
+            .pull-right= link_to 'delete', post_comment_path(c.post_id, c), :method => :delete, confirm: "Are you sure?"
+          %small= "#{c.created_at.strftime("%Y-%m-%d")}"
+          %br= c.content
+        %hr
 
-
-.row
-  .col-md-8
-    .post
-      = 'Dein Kommetar:'
+    .form-group
       = form_for :comment, url: post_comments_path(post_id: @post.id), action: :new do |f|
-        = f.text_area :content, rows: 4, cols: 40
-        %br
-        = f.submit
+
+        = f.text_area :content, rows: 4, cols: 40, placeholder: 'Schreib einen Kommentar', class: 'form-control', id: 'comment'
+        %br= f.submit :Absenden, class: 'btn btn-default pull-right'
 

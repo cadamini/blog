@@ -8,18 +8,12 @@ html {
   line-height: 1.2em;
   margin: 0 auto;
   width: 100%;
-  color: #666;
-  font-family: 'Raleway',sans-serif;
+  //font-family: 'Raleway',sans-serif;
 }
 
 .flash_area {
   text-align: center;
   background-color: whitesmoke;
-}
-
-#wrap {
-  width: 800px;
-  margin:0 auto;
 }
 
 .blog-header {
@@ -38,33 +32,23 @@ html {
 
 #container {
   border-top: 1px solid #e2f1f1;
-  margin: 0px;
-  clear: both;
+  border-bottom: 1px solid #e2f1f1;
   line-height: 24px;
-  padding: 10px;
+  margin-top: 60px;
+  padding: 10px 0 10px 0;
 }
 
-/*#sidebar {
-  float:right;
-  width: 200px;
-  height: 100%;
-}*/
+.nav {
+  border-bottom: 1px solid #a5a5a5;
+  background-color: #e2f1f1;
+}
+
+.navbar-text {
+  color: black;
+}
 
 .footer {
-  background-color: #e2f1f1;
-  clear: both;
-  bottom: 0;
-  left:0;
-  border: 1px solid #a5a5a5;
-  margin: 40px 0 0 0;
-  padding: 20px 0 20px 0;
-  text-align: center;
-  font-size: 10px;
-  clear:both;
- }
-
-span {
-  vertical-align: middle;
+ padding: 20px;
 }
 
 h1 {
@@ -140,11 +124,12 @@ li a:hover {
   text-align: center;
 }
 
-.comment-content {
-  border-radius: 15px;
-  background-color: #f2f7f1;
-  padding: 20px;
+.header {
+  padding-top: 80px;
 }
+// .comment-content {
+//   padding: 10px;
+// }
 
 
 @media only screen and (max-width: 1170px) {
