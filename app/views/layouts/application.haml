@@ -15,15 +15,14 @@
           %li= link_to 'Manage Posts', admin_index_path
           %li= link_to 'Create Post', new_post_path
           %li= link_to 'Create Category', new_category_path
+        #logo.navbar-text.pull-right='B:L:O:G:G:I:N:G A:B:O:U:T K:I:D:S'
           
 
     .flash_area
       - if flash
         = flash[:notice]
         = flash[:error]
-
-    #logo
-      %h1.big-logo.centered B:L:O:G:G:I:N:G A:B:O:U:T K:I:D:S
+        
     #container
       = yield
 
