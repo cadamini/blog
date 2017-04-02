@@ -1,12 +1,17 @@
-#container
-  %h2="Category filter set to: #{@category.name.capitalize}"
-  %small= link_to 'remove filter', posts_path
 
-- @posts.each do |post|
-  #container
-    %h1= link_to post.title, post_path(post.id)
-    %p.title_subline
-      = post.created_at.strftime("%Y-%m-%d")
-      = " | #{post.comments.count} Kommentare"
-    .hr_separator
-    
+
+.row
+  .col-md-12
+    .post
+
+      %h3="Filter:"
+      = "#{@category.name.capitalize}"
+      %small= link_to '(entfernen)', posts_path
+
+      - @posts.each do |post|
+        
+        %h3= link_to post.title, post_path(post.id)
+        %p.title_subline
+          = post.created_at.strftime("%Y-%m-%d")
+          = " | #{post.comments.count} Kommentare"
+  
