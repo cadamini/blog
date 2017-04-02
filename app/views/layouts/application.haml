@@ -30,7 +30,10 @@
 .footer.centered
 
   = fa_icon "copyright"
-  = 'Christian Adamini 2017'
+  = 'Christian Adamini 2017' 
+  = "| "
+  = link_to 'Background Image By Freepik', 'http://www.freepik.com/free-vector/pattern-with-baby-elements_795080.htm'
+
   %br
     - unless current_user
       = link_to 'Login', new_user_session_path
