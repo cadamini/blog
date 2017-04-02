@@ -11748,30 +11748,72 @@ button.close {
   clip: auto;
 }
 
-/* line 6, C:/Users/User/Desktop/ruby_projects/blog/app/assets/stylesheets/application.scss */
+/* line 1, C:/Users/User/Desktop/ruby_projects/blog/app/assets/stylesheets/link.css */
+a {
+  color: #666;
+  text-decoration: none;
+}
+
+/* line 6, C:/Users/User/Desktop/ruby_projects/blog/app/assets/stylesheets/link.css */
+a:hover {
+  color: #1c1c1c;
+  text-decoration: underline;
+}
+
+/* line 1, C:/Users/User/Desktop/ruby_projects/blog/app/assets/stylesheets/navbar.css */
+#navbar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+/* line 8, C:/Users/User/Desktop/ruby_projects/blog/app/assets/stylesheets/navbar.css */
+#navbar li {
+  float: left;
+}
+
+/* line 12, C:/Users/User/Desktop/ruby_projects/blog/app/assets/stylesheets/navbar.css */
+#navbar li a {
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* line 20, C:/Users/User/Desktop/ruby_projects/blog/app/assets/stylesheets/navbar.css */
+#navbar li a:hover {
+  background-color: #eee;
+}
+
+/* line 24, C:/Users/User/Desktop/ruby_projects/blog/app/assets/stylesheets/navbar.css */
+.nav {
+  border-bottom: 1px solid gold;
+  background-color: #e2f1f1;
+}
+
+/* line 29, C:/Users/User/Desktop/ruby_projects/blog/app/assets/stylesheets/navbar.css */
+.navbar-text {
+  color: black;
+}
+
+/* line 9, C:/Users/User/Desktop/ruby_projects/blog/app/assets/stylesheets/application.scss */
 body,
 html {
   padding: 0;
   line-height: 1.2em;
   margin: 0 auto;
   width: 100%;
-  color: #666;
-  font-family: 'Raleway',sans-serif;
 }
 
-/* line 15, C:/Users/User/Desktop/ruby_projects/blog/app/assets/stylesheets/application.scss */
+/* line 17, C:/Users/User/Desktop/ruby_projects/blog/app/assets/stylesheets/application.scss */
 .flash_area {
   text-align: center;
   background-color: whitesmoke;
 }
 
-/* line 20, C:/Users/User/Desktop/ruby_projects/blog/app/assets/stylesheets/application.scss */
-#wrap {
-  width: 800px;
-  margin: 0 auto;
-}
-
-/* line 25, C:/Users/User/Desktop/ruby_projects/blog/app/assets/stylesheets/application.scss */
+/* line 22, C:/Users/User/Desktop/ruby_projects/blog/app/assets/stylesheets/application.scss */
 .blog-header {
   background-color: #e2f1f1;
   padding: 26px 0 26px 0;
@@ -11781,54 +11823,34 @@ html {
   bottom: 0;
 }
 
-/* line 34, C:/Users/User/Desktop/ruby_projects/blog/app/assets/stylesheets/application.scss */
+/* line 31, C:/Users/User/Desktop/ruby_projects/blog/app/assets/stylesheets/application.scss */
 s
 .search {
-  padding: 10px;
   clear: both;
 }
 
-/* line 39, C:/Users/User/Desktop/ruby_projects/blog/app/assets/stylesheets/application.scss */
+/* line 35, C:/Users/User/Desktop/ruby_projects/blog/app/assets/stylesheets/application.scss */
 #container {
   border-top: 1px solid #e2f1f1;
-  margin: 0px;
-  clear: both;
+  border-bottom: 1px solid #e2f1f1;
   line-height: 24px;
+  margin-top: 25px;
   padding: 10px;
 }
 
-/*#sidebar {
-  float:right;
-  width: 200px;
-  height: 100%;
-}*/
-/* line 53, C:/Users/User/Desktop/ruby_projects/blog/app/assets/stylesheets/application.scss */
+/* line 43, C:/Users/User/Desktop/ruby_projects/blog/app/assets/stylesheets/application.scss */
 .footer {
-  background-color: #e2f1f1;
-  clear: both;
-  bottom: 0;
-  left: 0;
-  border: 1px solid #a5a5a5;
-  margin: 40px 0 0 0;
-  padding: 20px 0 20px 0;
-  text-align: center;
-  font-size: 10px;
-  clear: both;
+  padding: 20px;
 }
 
-/* line 66, C:/Users/User/Desktop/ruby_projects/blog/app/assets/stylesheets/application.scss */
-span {
-  vertical-align: middle;
-}
-
-/* line 70, C:/Users/User/Desktop/ruby_projects/blog/app/assets/stylesheets/application.scss */
+/* line 47, C:/Users/User/Desktop/ruby_projects/blog/app/assets/stylesheets/application.scss */
 h1 {
   font-size: 24px;
   line-height: 28px;
   margin: 0 10px 0 0;
 }
 
-/* line 76, C:/Users/User/Desktop/ruby_projects/blog/app/assets/stylesheets/application.scss */
+/* line 53, C:/Users/User/Desktop/ruby_projects/blog/app/assets/stylesheets/application.scss */
 h2 {
   font-size: 22px;
   font-weight: 800;
@@ -11836,96 +11858,55 @@ h2 {
   margin: 0 0 24px;
 }
 
-/* line 83, C:/Users/User/Desktop/ruby_projects/blog/app/assets/stylesheets/application.scss */
+/* line 60, C:/Users/User/Desktop/ruby_projects/blog/app/assets/stylesheets/application.scss */
 p.title_subline {
   font-size: 12px;
 }
 
-/* line 87, C:/Users/User/Desktop/ruby_projects/blog/app/assets/stylesheets/application.scss */
-.navigation {
-  float: left;
-}
-
-/* line 91, C:/Users/User/Desktop/ruby_projects/blog/app/assets/stylesheets/application.scss */
-a {
-  color: #666;
-  text-decoration: none;
-}
-
-/* line 96, C:/Users/User/Desktop/ruby_projects/blog/app/assets/stylesheets/application.scss */
-a:hover {
-  color: #1c1c1c;
-  text-decoration: underline;
-}
-
-/* line 101, C:/Users/User/Desktop/ruby_projects/blog/app/assets/stylesheets/application.scss */
+/* line 64, C:/Users/User/Desktop/ruby_projects/blog/app/assets/stylesheets/application.scss */
 .previous_page, .next_page {
   padding: 2px;
   border: 1px solid #eee;
 }
 
-/* line 106, C:/Users/User/Desktop/ruby_projects/blog/app/assets/stylesheets/application.scss */
+/* line 69, C:/Users/User/Desktop/ruby_projects/blog/app/assets/stylesheets/application.scss */
 .disabled {
   color: #eee;
 }
 
-/* line 110, C:/Users/User/Desktop/ruby_projects/blog/app/assets/stylesheets/application.scss */
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-}
-
-/* line 117, C:/Users/User/Desktop/ruby_projects/blog/app/assets/stylesheets/application.scss */
-li {
-  float: left;
-}
-
-/* line 121, C:/Users/User/Desktop/ruby_projects/blog/app/assets/stylesheets/application.scss */
-li a {
-  display: block;
-  color: black;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
-
-/* line 129, C:/Users/User/Desktop/ruby_projects/blog/app/assets/stylesheets/application.scss */
-li a:hover {
-  background-color: #eee;
-}
-
-/* line 133, C:/Users/User/Desktop/ruby_projects/blog/app/assets/stylesheets/application.scss */
+/* line 73, C:/Users/User/Desktop/ruby_projects/blog/app/assets/stylesheets/application.scss */
 .post {
   background-color: #e2f1f1;
   padding: 20px;
   margin: 0px 0px 20px 0;
 }
 
-/* line 139, C:/Users/User/Desktop/ruby_projects/blog/app/assets/stylesheets/application.scss */
+/* line 79, C:/Users/User/Desktop/ruby_projects/blog/app/assets/stylesheets/application.scss */
 .centered {
   text-align: center;
 }
 
-/* line 143, C:/Users/User/Desktop/ruby_projects/blog/app/assets/stylesheets/application.scss */
-.comment-content {
-  border-radius: 15px;
-  background-color: #f2f7f1;
-  padding: 20px;
+/* line 83, C:/Users/User/Desktop/ruby_projects/blog/app/assets/stylesheets/application.scss */
+.header {
+  padding-top: 80px;
 }
 
 @media only screen and (max-width: 1170px) {
-  /* line 151, C:/Users/User/Desktop/ruby_projects/blog/app/assets/stylesheets/application.scss */
+  /* line 89, C:/Users/User/Desktop/ruby_projects/blog/app/assets/stylesheets/application.scss */
   #wrap {
     width: 80%;
     margin: 0 auto;
   }
 }
 @media only screen and (max-width: 768px) {
-  /* line 158, C:/Users/User/Desktop/ruby_projects/blog/app/assets/stylesheets/application.scss */
+  /* line 96, C:/Users/User/Desktop/ruby_projects/blog/app/assets/stylesheets/application.scss */
   #wrap {
     width: 95%;
     margin: 0 auto;
   }
+}
+/* line 102, C:/Users/User/Desktop/ruby_projects/blog/app/assets/stylesheets/application.scss */
+#logo {
+  padding-top: 80px;
+  font-family: 'Indie Flower', cursive;
 }

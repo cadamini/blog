@@ -11882,7 +11882,7 @@ p.title_subline {
 }
 
 /* line 79, C:/Users/User/Desktop/ruby_projects/blog/app/assets/stylesheets/application.scss */
-#center-text {
+.centered {
   text-align: center;
 }
 

@@ -36,7 +36,7 @@ html {
   border-top: 1px solid #e2f1f1;
   border-bottom: 1px solid #e2f1f1;
   line-height: 24px;
-  margin-top: 60px;
+  margin-top: 25px;
   padding: 10px;
 }
 
@@ -76,7 +76,7 @@ p.title_subline {
   margin: 0px 0px 20px 0;
 }
 
-#center-text {
+.centered {
   text-align: center;
 }
 
@@ -97,4 +97,9 @@ p.title_subline {
     width: 95%;
     margin:0 auto;
   }
+}
+
+#logo {
+  padding-top: 80px;
+  font-family: 'Indie Flower', cursive;
 }

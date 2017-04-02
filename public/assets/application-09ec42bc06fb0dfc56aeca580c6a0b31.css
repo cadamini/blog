@@ -11888,7 +11888,7 @@ li a:hover {
 }
 
 /* line 123, C:/Users/User/Desktop/ruby_projects/blog/app/assets/stylesheets/application.scss */
-#center-text {
+.centered {
   text-align: center;
 }
 
