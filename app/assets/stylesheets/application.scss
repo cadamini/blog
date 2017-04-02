@@ -63,7 +63,8 @@ h2 {
 }
 
 p.title_subline {
-  font-size: 12px;
+  font-size: 10px;
+  border-bottom: 1px solid lightgrey;
 }
 
 .previous_page, .next_page, {
@@ -77,6 +78,7 @@ p.title_subline {
 
 .post {
   background-color: #e2f1f1;
+  border: 1px solid gold;
   padding: 20px;
   margin: 0px 0px 20px 0;
 }
