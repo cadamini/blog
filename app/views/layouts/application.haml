@@ -6,7 +6,7 @@
   = stylesheet_link_tag :application, :comments, :navbar
   = javascript_include_tag :application
   = csrf_meta_tag
-
+  
   #wrap
     #navbar.nav.navbar.navbar-fixed-top
       %ul
@@ -22,7 +22,7 @@
       - if flash
         = flash[:notice]
         = flash[:error]
-        
+
     #container
       = yield
 
