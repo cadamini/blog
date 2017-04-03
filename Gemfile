@@ -4,8 +4,9 @@ gem 'rails'
 gem 'activejob_backport' # required for rails 4.1 and 4.2
 gem 'pg'
 
-group :production do 
+group :production do
   gem 'rails_12factor'
+  gem 'puma'
 end
 
 gem 'sass-rails', '~> 4.0.3'
