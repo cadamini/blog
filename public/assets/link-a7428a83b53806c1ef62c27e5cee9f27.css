@@ -1,0 +1,11 @@
+/* line 1, C:/Users/User/Desktop/ruby_projects/blog/app/assets/stylesheets/link.css.scss */
+a {
+  color: #666;
+  text-decoration: none;
+}
+
+/* line 6, C:/Users/User/Desktop/ruby_projects/blog/app/assets/stylesheets/link.css.scss */
+a:hover {
+  color: #1c1c1c;
+  text-decoration: underline;
+}
