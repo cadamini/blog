@@ -7,7 +7,6 @@ class PostsController < ApplicationController
                  .published
                  .order('created_at DESC')
                  .paginate(page: params[:page], per_page: 3)
-    @categories = Category.all
   end
 
   def edit
