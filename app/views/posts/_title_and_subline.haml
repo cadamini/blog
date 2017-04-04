@@ -2,7 +2,8 @@
   = link_to post.title, post_path(post.id)
 %p.title_subline
   = post.created_at.strftime("%d.%b %Y")
-  = " | #{post.comments.count} Kommentare"
+  = " | Kommentare: "
+  =  post.comments_count
   - unless post.category_id.nil?
     = " | In: "
     = link_to resolve_category_by_name(post.category_id), category_path(post.category_id)
