@@ -1,36 +1,32 @@
-.row
-  .col-md-4
-    .search
-      = render partial: 'posts/search_form'
-  .col-md-8
-    .post
-      = render partial: 'title_and_subline', locals: { post: @post}
+= render partial: 'sidebar'
+.post
+  = render partial: 'title_and_subline', locals: { post: @post}
 
-      .post-description
-        = markdown(@post.description)
+  .post-description
+    = markdown(@post.description)
 
-      %br
-      = link_to "https://www.facebook.com/sharer/sharer.php?u=#{request.original_url}" do
-        .btn.btn-facebook
-          = fa_icon 'facebook-official'
-          = 'Share!'
+  %br
+  = link_to "https://www.facebook.com/sharer/sharer.php?u=#{request.original_url}" do
+    .btn.btn-facebook
+      = fa_icon 'facebook-official'
+      = 'Share!'
 
-    = 'Kommentare:'
+= 'Kommentare:'
+%hr
+
+- if @post.comments.any?
+  - @post.comments.each do |c|
+
+    .comment-content
+      - if current_user && current_user.admin?
+        .pull-right= link_to 'delete', post_comment_path(c.post_id, c), :method => :delete, confirm: "Are you sure?"
+      %small= "#{c.created_at.strftime("%Y-%m-%d")}"
+      %br= c.content
     %hr
 
-    - if @post.comments.any?
-      - @post.comments.each do |c|
+.form-group
+  = form_for :comment, url: post_comments_path(post_id: @post.id), action: :new do |f|
 
-        .comment-content
-          - if current_user && current_user.admin?
-            .pull-right= link_to 'delete', post_comment_path(c.post_id, c), :method => :delete, confirm: "Are you sure?"
-          %small= "#{c.created_at.strftime("%Y-%m-%d")}"
-          %br= c.content
-        %hr
-
-    .form-group
-      = form_for :comment, url: post_comments_path(post_id: @post.id), action: :new do |f|
-
-        = f.text_area :content, rows: 4, cols: 40, placeholder: 'Schreib einen Kommentar', class: 'form-control', id: 'comment'
-        %br= f.submit :Absenden, class: 'btn btn-default pull-right'
+    = f.text_area :content, rows: 4, cols: 40, placeholder: 'Schreib einen Kommentar', class: 'form-control', id: 'comment'
+    %br= f.submit :Absenden, class: 'btn btn-default pull-right'
 
