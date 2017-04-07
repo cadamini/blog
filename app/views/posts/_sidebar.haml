@@ -1,0 +1,9 @@
+- content_for :sidebar do 
+  = render partial: 'layouts/sidebar/search_form'
+  .post
+    %b="Kategorien"
+    %br
+    = render partial: 'layouts/sidebar/categories', collection: @categories, as: :category
+  .post
+    %b="Letzte Posts"
+    = render partial: 'layouts/sidebar/recent_posts', collection: @recent_posts, as: :post
