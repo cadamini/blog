@@ -10,23 +10,24 @@
     .btn.btn-facebook
       = fa_icon 'facebook-official'
       = 'Share!'
+  %hr
+  %p
+    = 'Kommentare:'
+  %hr
 
-= 'Kommentare:'
-%hr
+  - if @post.comments.any?
+    - @post.comments.each do |c|
 
-- if @post.comments.any?
-  - @post.comments.each do |c|
+      .comment-content
+        - if current_user && current_user.admin?
+          .pull-right= link_to 'delete', post_comment_path(c.post_id, c), :method => :delete, confirm: "Are you sure?"
+        %small= "#{c.created_at.strftime("%Y-%m-%d")}"
+        %br= c.content
+      %hr
 
-    .comment-content
-      - if current_user && current_user.admin?
-        .pull-right= link_to 'delete', post_comment_path(c.post_id, c), :method => :delete, confirm: "Are you sure?"
-      %small= "#{c.created_at.strftime("%Y-%m-%d")}"
-      %br= c.content
-    %hr
+  .form-group
+    = form_for :comment, url: post_comments_path(post_id: @post.id), action: :new do |f|
 
-.form-group
-  = form_for :comment, url: post_comments_path(post_id: @post.id), action: :new do |f|
-
-    = f.text_area :content, rows: 4, cols: 40, placeholder: 'Schreib einen Kommentar', class: 'form-control', id: 'comment'
-    %br= f.submit :Absenden, class: 'btn btn-default pull-right'
+      = f.text_area :content, rows: 4, cols: 40, placeholder: 'Schreib einen Kommentar', class: 'form-control', id: 'comment'
+      %br= f.submit :Absenden, class: 'btn btn-default pull-right'
 
