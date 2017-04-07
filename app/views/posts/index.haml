@@ -1,23 +1,25 @@
-.row
-  .col-md-4
-    .search
-      = render partial: 'posts/search_form'
-  .col-md-8
-    - unless @posts.nil?
-      - @posts.each do |post|
-        .post
-          = render partial: 'title_and_subline', locals: { post: post}
+- content_for :sidebar do 
+  = render partial: 'layouts/sidebar/search_form'
+  .post
+    %b="Kategorien"
+    %br
+    = render partial: 'layouts/sidebar/categories', collection: @categories, as: :category
 
-          .post-description
-            = markdown(truncate(post.description, length: 275))
+  .post
+    %b="Letzte Posts"
+    = render partial: 'layouts/sidebar/recent_posts', collection: @recent_posts, as: :post
+- unless @posts.nil?
+  - @posts.each do |post|
+    .post
+      = render partial: 'title_and_subline', locals: { post: post}
 
-            - if post.description.length > 300
-              = link_to 'Lesen', post_path(post.id)
+      .post-description
+        = markdown(truncate(post.description, length: 275))
 
-    - else
-      = 'No Posts Yet'
+        - if post.description.length > 300
+          = link_to 'Lesen', post_path(post.id)
 
-.row
-  .col-md-4
-  .col-md-8
-    .centered= will_paginate @posts, page_links: false
+- else
+  = 'No Posts Yet'
+
+.centered= will_paginate @posts, page_links: false
