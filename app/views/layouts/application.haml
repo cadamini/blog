@@ -24,7 +24,11 @@
         = flash[:error]
 
     #container
-      = yield
+      .row
+        .col-md-4
+          = yield(:sidebar)
+        .col-md-8
+          = yield
 
 .footer.centered
 
