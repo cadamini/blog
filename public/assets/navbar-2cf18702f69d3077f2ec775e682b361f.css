@@ -1,0 +1,40 @@
+/* line 1, /Users/cadamini/RubyApps/blog/app/assets/stylesheets/navbar.css.scss */
+#navbar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+/* line 8, /Users/cadamini/RubyApps/blog/app/assets/stylesheets/navbar.css.scss */
+#navbar li {
+  float: left;
+  height: 50px;
+}
+
+/* line 13, /Users/cadamini/RubyApps/blog/app/assets/stylesheets/navbar.css.scss */
+#navbar li a {
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  line-height: 25px;
+  height: 50px;
+}
+
+/* line 23, /Users/cadamini/RubyApps/blog/app/assets/stylesheets/navbar.css.scss */
+#navbar li a:hover {
+  background-color: #eee;
+}
+
+/* line 27, /Users/cadamini/RubyApps/blog/app/assets/stylesheets/navbar.css.scss */
+.nav {
+  border-bottom: 1px solid #DDD;
+  background-color: white;
+}
+
+/* line 32, /Users/cadamini/RubyApps/blog/app/assets/stylesheets/navbar.css.scss */
+.navbar-text {
+  color: black;
+}

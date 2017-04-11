@@ -1,0 +1,11 @@
+/* line 1, /Users/cadamini/RubyApps/blog/app/assets/stylesheets/link.css.scss */
+a {
+  color: #666;
+  text-decoration: none;
+}
+
+/* line 6, /Users/cadamini/RubyApps/blog/app/assets/stylesheets/link.css.scss */
+a:hover {
+  color: gold;
+  text-decoration: underline;
+}

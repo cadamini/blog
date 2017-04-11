@@ -1,0 +1,29 @@
+/* line 1, /Users/cadamini/RubyApps/blog/app/assets/stylesheets/widgets.css.scss */
+#widget-container {
+  border-top: 3px solid gold;
+}
+
+/* line 6, /Users/cadamini/RubyApps/blog/app/assets/stylesheets/widgets.css.scss */
+.widget {
+  padding: 10px;
+  background-color: #f4fbff;
+}
+
+/* line 11, /Users/cadamini/RubyApps/blog/app/assets/stylesheets/widgets.css.scss */
+.widget li {
+  list-style: none;
+  border-bottom: 1px dotted #ddd;
+}
+
+/* line 16, /Users/cadamini/RubyApps/blog/app/assets/stylesheets/widgets.css.scss */
+.widget .title {
+  border-bottom: 1px dotted #ddd;
+  text-transform: uppercase;
+  font-weight: bold;
+  padding-bottom: 10px;
+}
+
+/* line 23, /Users/cadamini/RubyApps/blog/app/assets/stylesheets/widgets.css.scss */
+.widget .content {
+  padding: 0px;
+}

@@ -1,0 +1,14 @@
+/* line 1, /Users/cadamini/RubyApps/blog/app/assets/stylesheets/posts.css.scss */
+#post {
+  border-top: 3px solid gold;
+  background-color: #f4fbff;
+  padding: 20px;
+  margin: -1px;
+  margin: 0px 0px 20px 0;
+}
+
+/* line 9, /Users/cadamini/RubyApps/blog/app/assets/stylesheets/posts.css.scss */
+.subline {
+  font-size: 10px;
+  border-bottom: 1px solid #ddd;
+}
