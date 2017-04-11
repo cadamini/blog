@@ -6,43 +6,32 @@
   = stylesheet_link_tag :application, :comments, :navbar
   = javascript_include_tag :application
   = csrf_meta_tag
-  
-  #wrap
-    #navbar.nav.navbar.navbar-fixed-top
-      %ul
-        %li=link_to 'Blog', posts_path
-        - if current_user && current_user.admin?
-          %li= link_to 'Manage Posts', admin_index_path
-          %li= link_to 'Create Post', new_post_path
-          %li= link_to 'Create Category', new_category_path
-        #logo.navbar-text.pull-right='B:L:O:G:G:I:N:G A:B:O:U:T K:I:D:S'
-          
 
-    .flash_area
-      - if flash
-        = flash[:notice]
-        = flash[:error]
+#logo
+  .centered='B:L:O:G:G:I:N:G A:B:O:U:T K:I:D:S'
 
-    #container
-      .row
-        .col-md-4
-          = yield(:sidebar)
-        .col-md-8
-          = yield
+#navbar.nav
+  %ul
+    %li=link_to 'Blog', posts_path
+    - if current_user && current_user.admin?
+      %li= link_to 'Manage Posts', admin_index_path
+      %li= link_to 'Create Post', new_post_path
+      %li= link_to 'Create Category', new_category_path
 
-.footer.centered
+.flash_area
+  - if flash
+    = flash[:notice]
+    = flash[:error]
 
-  = fa_icon "copyright"
-  = 'Christian Adamini 2017' 
-  = "| "
-  = link_to 'Background Image By Freepik', 'http://www.freepik.com/free-vector/pattern-with-baby-elements_795080.htm'
 
-  %br
-    - unless current_user
-      = link_to 'Login', new_user_session_path
+.container-fluid
+  .content
+    .row
+      #main-content.col-md-9
+        = yield
+      #sidebar.col-md-3.full-height
+        = yield(:sidebar)
 
-    - if current_user
-      = 'Logged in as:'
-      = current_user.email
-      = link_to 'Logout', destroy_user_session_path, method: :delete
-
+  .footer
+    = render partial: 'layouts/footer'
+.background

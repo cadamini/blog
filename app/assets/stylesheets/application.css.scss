@@ -4,19 +4,26 @@
 @import "link";
 @import "comments";
 @import "navbar";
+@import "posts";
+@import "widgets";
+@import "logo";
+@import "sidebar";
 
-body,
-html {
-  padding:0;
-  line-height: 1.2em;
-  margin: 0 auto;
-  width: 100%;
-  font-family: 'Open Sans', sans-serif;
-  background: image-url('bg.JPG') no-repeat center center fixed;
+body {
+  background-color: #f4fbff;
+}
+
+.background {
+  height: 50px;
+  background: image-url('bg.JPG') repeat center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
-  background-size: cover;
+}
+
+.container-fluid {
+  padding: 0px;
+  margin: 0 auto;
 }
 
 .flash_area {
@@ -24,34 +31,8 @@ html {
   background-color: whitesmoke;
 }
 
-.blog-header {
-  background-color: #e2f1f1;
-   padding: 26px 0 26px 0;
-   border: 1px solid #a5a5a5;
-   text-align: center;
-   font-size: 24px;
-   bottom: 0;
- }
-
 .search {
   clear: both;
-}
-
-#container {
-  line-height: 24px;
-  margin-top: 60px;
-  padding: 10px;
-}
-
-.footer {
-  padding: 20px;
-  z-index: 100;
-  left:0px;
-  bottom: 0px;
-  height:60px;
-  width:100%;
-  background: #e2f1f1;
-  border-top: 1px solid gold;
 }
 
 h1 {
@@ -67,55 +48,37 @@ h2 {
   margin: 0 0 24px;
 }
 
-p.title_subline {
-  font-size: 10px;
-}
-
-.grey-border-bottom {
-  border-bottom: 1px solid lightgrey;
-}
-
 .previous_page, .next_page, {
   padding: 2px;
   border: 1px solid #eee;
+  background-color: white;
 }
 
 .disabled {
   color: #eee;
 }
 
-.post {
-  background-color: #e2f1f1;
-  border: 1px solid gold;
-  padding: 20px;
-  margin: 0px 0px 20px 0;
-}
-
 .centered {
   text-align: center;
 }
 
-.header {
-  padding-top: 80px;
+#main-content {
+  border-right: 1px dotted #DDD;
+  padding: 50px;
 }
 
+.footer {
+  position: relative;
+  width: 100%;
+  border-bottom: 3px solid gold;
+  border-top: 1px solid #ddd;
+  background-color: white;
+  padding: 15px;
+}
 
 @media only screen and (max-width: 1170px) {
-  #wrap {
-    width: 80%;
-    margin:0 auto;
-  }
 }
 
 @media only screen and (max-width: 768px) {
-  #wrap {
-    width: 95%;
-    margin:0 auto;
-  }
 }
 
-#logo {
-  font-size: 2em;
-  font-family: 'Indie Flower', cursive;
-  line-height: 1em;
-}

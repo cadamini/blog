@@ -11790,7 +11790,7 @@ a:hover {
 /* line 24, C:/Users/User/Desktop/ruby_projects/blog/app/assets/stylesheets/navbar.css */
 .nav {
   border-bottom: 1px solid gold;
-  background-color: #e2f1f1;
+  background-color: #f4fbff;
 }
 
 /* line 29, C:/Users/User/Desktop/ruby_projects/blog/app/assets/stylesheets/navbar.css */
@@ -11818,7 +11818,7 @@ html {
 
 /* line 27, C:/Users/User/Desktop/ruby_projects/blog/app/assets/stylesheets/application.scss */
 .blog-header {
-  background-color: #e2f1f1;
+  background-color: #f4fbff;
   padding: 26px 0 26px 0;
   border: 1px solid #a5a5a5;
   text-align: center;
@@ -11860,7 +11860,7 @@ h2 {
 }
 
 /* line 63, C:/Users/User/Desktop/ruby_projects/blog/app/assets/stylesheets/application.scss */
-p.title_subline {
+p.subline {
   font-size: 10px;
   border-bottom: 1px solid lightgrey;
 }
@@ -11878,7 +11878,7 @@ p.title_subline {
 
 /* line 77, C:/Users/User/Desktop/ruby_projects/blog/app/assets/stylesheets/application.scss */
 .post {
-  background-color: #e2f1f1;
+  background-color: #f4fbff;
   border: 1px solid gold;
   padding: 20px;
   margin: 0px 0px 20px 0;

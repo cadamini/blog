@@ -1,16 +1,16 @@
 = render partial: 'sidebar'
-- unless @posts.nil?
+- unless @posts.empty?
   - @posts.each do |post|
-    .post
+    #post
       = render partial: 'title_and_subline', locals: { post: post}
 
-      .post-description
+      .content
         = markdown(truncate(post.description, length: 275))
 
         - if post.description.length > 300
           = link_to 'Lesen', post_path(post.id)
-
 - else
-  = 'No Posts Yet'
+  #post
+    = 'Keine Posts gefunden.'
 
-.centered= will_paginate @posts, page_links: false
+#pagination.centered= will_paginate @posts, page_links: false

@@ -1,0 +1,25 @@
+#widget-container {
+  border-top: 3px solid gold;
+
+}
+
+.widget {
+  padding: 10px;
+  background-color: #f4fbff;
+}
+
+.widget li {
+  list-style: none;
+  border-bottom: 1px dotted #ddd;
+}
+
+.widget .title {
+  border-bottom: 1px dotted #ddd;
+  text-transform: uppercase;
+  font-weight: bold;
+  padding-bottom: 10px;
+}
+
+.widget .content {
+  padding: 0px;
+}

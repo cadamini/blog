@@ -8,7 +8,7 @@ class PostsController < ApplicationController
                  .order('created_at DESC')
                  .paginate(page: params[:page], per_page: 3)
     @categories = Category.all
-    @recent_posts = Post.last(5)
+    @recent_posts = Post.published.last(5)
   end
 
   def edit

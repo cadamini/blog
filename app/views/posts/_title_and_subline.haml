@@ -1,6 +1,6 @@
 %h1
   = link_to post.title, post_path(post.id)
-%p.title_subline
+%p.subline
   = post.created_at.strftime("%d.%b %Y")
   = " | Kommentare: "
   =  post.comments_count
