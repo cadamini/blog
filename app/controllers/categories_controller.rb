@@ -1,11 +1,11 @@
 class CategoriesController < ApplicationController
   before_filter :authenticate_user!, except: [:show]
   before_filter :ensure_admin!, except: [:show]
-  
+
   def new
     @category = Category.new
    end
-  
+
   def create
   	@category = Category.new(category_params)
     if @category.save
@@ -17,7 +17,7 @@ class CategoriesController < ApplicationController
 
   def show
   	@category = Category.find(params[:id])
-  	@posts = @category.posts
+  	@posts = @category.posts.published
   end
 
   private
