@@ -40,4 +40,7 @@ group :development, :test do
   gem 'simplecov'
 end
 
+gem 'carrierwave'
+gem 'mini_magick'
+
 ruby "2.3.3"
