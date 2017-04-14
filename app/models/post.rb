@@ -4,6 +4,9 @@ class Post < ActiveRecord::Base
 	validates :title, presence: true
 	validates :description, presence: true
 
+  attr_accessor :image, :remote_image_url
+  mount_uploader :image, ImageUploader
+
   # most simple search, need to refined
   def self.search(params)
     if params
