@@ -7,7 +7,7 @@ class PostsController < ApplicationController
                  .published
                  .order('created_at DESC')
                  .paginate(page: params[:page], per_page: 3)
-    @categories = Category.all
+    @categories = Category.joins(:posts).uniq.sort
     @recent_posts = Post.published.last(5)
   end
 
@@ -22,8 +22,8 @@ class PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     @category = resolve_category_by_name(@post.category_id)
-    @categories = Category.all
-    @recent_posts = Post.last(5)
+    @categories = Category.joins(:posts).uniq.sort
+    @recent_posts = Post.published.last(5)
   end
 
   def create
