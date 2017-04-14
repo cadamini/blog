@@ -1,8 +1,6 @@
-if Rails.env.development?
-	workers 0
-else
-	workers Integer(ENV['WEB_CONCURRENCY'] || 2)
-end
+require 'rails' 
+workers(Rails.env.development? ? 0 : Integer(ENV['WEB_CONCURRENCY'] || 5))
+
 
 threads_count = Integer(ENV['RAILS_MAX_THREADS'] || 5)
 threads threads_count, threads_count
