@@ -4,8 +4,7 @@
 
   .post-description
 
-    %span= image_tag @post.image_url  if @post.image?
-    = @post.image_url 
+    %span= image_tag @post.image_url(:post_header)  if @post.image?
     = markdown(@post.description)
 
   %br

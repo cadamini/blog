@@ -1,0 +1,40 @@
+/* line 1, C:/Users/User/Desktop/ruby_projects/blog/app/assets/stylesheets/navbar.css.scss */
+#navbar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+/* line 8, C:/Users/User/Desktop/ruby_projects/blog/app/assets/stylesheets/navbar.css.scss */
+#navbar li {
+  float: left;
+  height: 50px;
+}
+
+/* line 13, C:/Users/User/Desktop/ruby_projects/blog/app/assets/stylesheets/navbar.css.scss */
+#navbar li a {
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  line-height: 25px;
+  height: 50px;
+}
+
+/* line 23, C:/Users/User/Desktop/ruby_projects/blog/app/assets/stylesheets/navbar.css.scss */
+#navbar li a:hover {
+  background-color: #eee;
+}
+
+/* line 27, C:/Users/User/Desktop/ruby_projects/blog/app/assets/stylesheets/navbar.css.scss */
+.nav {
+  border-bottom: 1px solid #DDD;
+  background-color: white;
+}
+
+/* line 32, C:/Users/User/Desktop/ruby_projects/blog/app/assets/stylesheets/navbar.css.scss */
+.navbar-text {
+  color: black;
+}
