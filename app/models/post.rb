@@ -10,7 +10,7 @@ class Post < ActiveRecord::Base
   # most simple search, need to refined
   def self.search(params)
     if params
-      where('title LIKE ? OR description LIKE ?', "%#{params}%", "%#{params}%")
+      where('title ILIKE ? OR description ILIKE ?', "%#{params}%", "%#{params}%")
     else 
       all
     end
