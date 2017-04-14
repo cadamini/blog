@@ -40,7 +40,8 @@ group :development, :test do
   gem 'simplecov'
 end
 
-gem 'carrierwave'
+gem 'carrierwave', '~> 0.9'
+gem 'carrierwave-dropbox'
 gem 'mini_magick'
 
 ruby "2.3.3"
