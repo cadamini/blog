@@ -2,6 +2,7 @@
 - unless @posts.empty?
   - @posts.each do |post|
     #post
+      = image_tag post.image_url(:thumb) if post.image?
       = render partial: 'title_and_subline', locals: { post: post}
 
       .content

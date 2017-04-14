@@ -3,6 +3,8 @@
   = render partial: 'title_and_subline', locals: { post: @post}
 
   .post-description
+
+    %span= image_tag @post.image_url(:thumb) if @post.image?
     = markdown(@post.description)
 
   %br
