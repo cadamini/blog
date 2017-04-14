@@ -1,5 +1,5 @@
 %h1="Edit Post (Id: #{@post.id})"
-= form_for @post do |f|
+= form_for @post, :html => {:multipart => true} do |f|
   %br
   = f.text_field :title, size: '40'
   %br
@@ -9,6 +9,12 @@
   = f.label :category
   %br
   = f.select :category_id, Category.all.map{ |category| [category.name, category.id] }
+  %br
+  = f.file_field :image
+  %br
+  = f.label :remote_image_url, "or image URL"
+  %br
+  = f.text_field :remote_image_url
   %br
   = f.submit 
   %small=link_to 'back', posts_path
