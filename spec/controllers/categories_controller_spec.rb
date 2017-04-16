@@ -44,22 +44,6 @@ RSpec.describe CategoriesController, type: :controller do
   # CategoriesController. Be sure to keep this updated too.
   let(:valid_session) { {} }
 
-  describe "GET #index" do
-    it "assigns all categories as @categories" do
-      category = Category.create! valid_attributes
-      get :index, params: {}, session: valid_session
-      expect(assigns(:categories)).to eq([category])
-    end
-  end
-
-  describe "GET #show" do
-    it "assigns the requested category as @category" do
-      category = Category.create! valid_attributes
-      get :show, params: {id: category.to_param}, session: valid_session
-      expect(assigns(:category)).to eq(category)
-    end
-  end
-
   describe "GET #new" do
     it "assigns a new category as @category" do
       get :new, params: {}, session: valid_session

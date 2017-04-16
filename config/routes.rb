@@ -8,7 +8,7 @@ Rails.application.routes.draw do
       put 'unpublish'
     end
   end
-  resources :categories
+  resources :categories, except: [:index, :show]
 
   resources :users do
     member do

@@ -5,15 +5,6 @@ class CategoriesController < ApplicationController
 
   respond_to :html
 
-  def index
-    @categories = Category.all
-    respond_with(@categories)
-  end
-
-  def show
-    respond_with(@category)
-  end
-
   def new
     @category = Category.new
     respond_with(@category)
