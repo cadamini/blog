@@ -1,25 +1,25 @@
 class PostsController < ApplicationController
   before_filter :authenticate_user!, except: [:index, :show]
   before_filter :ensure_admin!, except: [:index, :show, :publish, :unpublish]
+  before_filter :set_post, only: [:show, :edit, :update, :destroy]
 
   def index
-    posts = nil
-    if params[:category_id]
-      @category = Category.find(params[:category_id])
-      posts = @category.posts
-    else
-      posts = Post.search(params[:search])
-    end
+    posts = if params[:category_id]
+              @category = Category.find(params[:category_id])
+              @category.posts
+            else
+              Post.search(params[:search])
+            end
+
     @posts = posts.published
-              .order('created_at DESC')
-              .paginate(page: params[:page], per_page: 3)
+                  .order('created_at DESC')
+                  .paginate(page: params[:page], per_page: 3)
 
     @categories = Category.joins(:posts).uniq.sort
     @recent_posts = Post.published.last(5)
   end
 
   def edit
-    @post = Post.find(params[:id])
   end
 
   def new
@@ -27,7 +27,6 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = Post.find(params[:id])
     @category = resolve_category_by_name(@post.category_id)
     @categories = Category.joins(:posts).uniq.sort
     @recent_posts = Post.published.last(5)
@@ -54,7 +53,6 @@ class PostsController < ApplicationController
   end
 
   def update
-    @post = Post.find(params[:id])
     @post.update_attributes(post_params)
 
     if @post.save
@@ -75,20 +73,22 @@ class PostsController < ApplicationController
   end
 
   def publish
-    @post = Post.find(params[:id])
     @post.update_attributes(published: true)
     flash[:notice] = "Post #{@post.title} published"
     redirect_to admin_index_url
   end
 
   def unpublish
-    @post = Post.find(params[:id])
     @post.update_attributes(published: false)
     flash[:notice] = "Post #{@post.title} unpublished"
     redirect_to admin_index_url
   end
 
   private
+
+  def set_post
+    @post = Post.find(params[:id])
+  end
 
   def post_params
     params.require(:post).permit(:title, :description, :category_id, :published, :image, :remote_image_url)
