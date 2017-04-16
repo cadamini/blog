@@ -1,0 +1,17 @@
+/* line 1, C:/Users/User/Desktop/ruby_projects/blog/app/assets/stylesheets/comments.css.scss */
+#comments {
+  border-top: 3px solid gold;
+  background-color: #f4fbff;
+  margin: -1px;
+}
+
+/* line 7, C:/Users/User/Desktop/ruby_projects/blog/app/assets/stylesheets/comments.css.scss */
+.subline {
+  font-size: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+/* line 12, C:/Users/User/Desktop/ruby_projects/blog/app/assets/stylesheets/comments.css.scss */
+.content {
+  margin: 0 0 20px 0;
+}
