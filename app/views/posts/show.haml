@@ -1,9 +1,8 @@
 = render partial: 'sidebar'
 #post
   = render partial: 'title_and_subline', locals: { post: @post}
-
+  
   .post-description
-
     %span= image_tag @post.image_url(:post_header)  if @post.image?
     = markdown(@post.description)
 
@@ -12,6 +11,7 @@
     .btn.btn-facebook
       = fa_icon 'facebook-official'
       = 'Share!'
+
   %hr
   %p
     = 'Kommentare:'
@@ -21,7 +21,7 @@
     - @post.comments.each do |c|
 
       .comment-content
-        - if current_user && current_user.admin?
+        - if logged_in_as_admin?
           .pull-right= link_to 'delete', post_comment_path(c.post_id, c), :method => :delete, data: { confirm: "Are you sure?" }
         %small= "#{c.created_at.strftime("%Y-%m-%d")}"
         %br= c.content
