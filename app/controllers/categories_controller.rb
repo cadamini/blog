@@ -1,28 +1,49 @@
 class CategoriesController < ApplicationController
+  before_action :set_category, only: [:show, :edit, :update, :destroy]
   before_filter :authenticate_user!, except: [:show]
   before_filter :ensure_admin!, except: [:show]
 
-  def new
-    @category = Category.new
-   end
+  respond_to :html
 
-  def create
-  	@category = Category.new(category_params)
-    if @category.save
-      redirect_to @category
-    else
-      render :new
-    end
+  def index
+    @categories = Category.all
+    respond_with(@categories)
   end
 
   def show
-  	@category = Category.find(params[:id])
-  	@posts = @category.posts.published
+    respond_with(@category)
+  end
+
+  def new
+    @category = Category.new
+    respond_with(@category)
+  end
+
+  def edit
+  end
+
+  def create
+    @category = Category.new(category_params)
+    @category.save
+    respond_with(@category)
+  end
+
+  def update
+    @category.update(category_params)
+    respond_with(@category)
+  end
+
+  def destroy
+    @category.destroy
+    respond_with(@category)
   end
 
   private
+    def set_category
+      @category = Category.find(params[:id])
+    end
 
-  def category_params
-	  params.require(:category).permit(:name)
-  end
+    def category_params
+      params.require(:category).permit(:name)
+    end
 end
