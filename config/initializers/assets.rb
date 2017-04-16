@@ -12,5 +12,6 @@ Rails.application.config.assets.precompile += [
   'posts.css',
   'widgets.css',
   'logo.css',
-  'sidebar.css'
+  'sidebar.css',
+  'sortable.js'
 ]
