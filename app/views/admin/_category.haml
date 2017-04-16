@@ -12,8 +12,10 @@
     - @categories.each do |category|
       %tr
         %td= category.id
-        %td= link_to category.name, category_path(category)
+        %td=link_to category.name, posts_path(category_id: category.id)
         %td
           = link_to "edit", edit_category_path(category)
           = link_to 'delete', category, :method => :delete, data: { confirm: "Are you sure?" }
+
+
 

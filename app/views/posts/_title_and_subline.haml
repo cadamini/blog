@@ -6,4 +6,4 @@
   =  post.comments_count
   - unless post.category_id.nil?
     = " | In: "
-    = link_to resolve_category_by_name(post.category_id), category_path(post.category_id)
+    =link_to resolve_category_by_name(post.category_id), posts_path(:category_id => post.category_id)

@@ -3,10 +3,17 @@ class PostsController < ApplicationController
   before_filter :ensure_admin!, except: [:index, :show, :publish, :unpublish]
 
   def index
-    @posts = Post.search(params[:search])
-                 .published
-                 .order('created_at DESC')
-                 .paginate(page: params[:page], per_page: 3)
+    posts = nil
+    if params[:category_id]
+      @category = Category.find(params[:category_id])
+      posts = @category.posts
+    else
+      posts = Post.search(params[:search])
+    end
+    @posts = posts.published
+              .order('created_at DESC')
+              .paginate(page: params[:page], per_page: 3)
+
     @categories = Category.joins(:posts).uniq.sort
     @recent_posts = Post.published.last(5)
   end
