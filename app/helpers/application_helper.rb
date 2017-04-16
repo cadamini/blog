@@ -21,3 +21,7 @@ module ApplicationHelper
     markdown.render(text).html_safe
   end
 end
+
+def logged_in_as_admin?
+  current_user && current_user.admin?
+end
