@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   before_filter :authenticate_user!, except: [:index, :show, :by_month]
   before_filter :ensure_admin!, except: [:index, :by_month, :show, :publish, :unpublish]
-  before_filter :set_post, only: [:show, :edit, :update, :destroy]
+  before_filter :set_post, only: [:show, :edit, :update, :destroy, :publish, :unpublish]
   before_filter :set_post_archive, only: [:show, :by_month, :index]
 
   def index
