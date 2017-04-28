@@ -6,6 +6,8 @@ Rails.application.routes.draw do
     member do
       put 'publish'
       put 'unpublish'
+      get 'posts/by_month/:month' => 'posts#by_month', :as=> :posts_by_month
+
     end
   end
   resources :categories, except: [:index, :show]

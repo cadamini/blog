@@ -14,3 +14,9 @@
           ="Letzte Posts"
         .content
           = render partial: 'layouts/sidebar/recent_posts', collection: @recent_posts, as: :post
+      .widget
+        .title
+          ="Archiv"
+        .content
+          = render partial: 'layouts/sidebar/post_archive', locals: {archive: @archive, months: (1..12).to_a }
+

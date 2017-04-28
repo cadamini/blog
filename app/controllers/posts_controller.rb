@@ -1,7 +1,8 @@
 class PostsController < ApplicationController
-  before_filter :authenticate_user!, except: [:index, :show]
-  before_filter :ensure_admin!, except: [:index, :show, :publish, :unpublish]
+  before_filter :authenticate_user!, except: [:index, :show, :by_month]
+  before_filter :ensure_admin!, except: [:index, :by_month, :show, :publish, :unpublish]
   before_filter :set_post, only: [:show, :edit, :update, :destroy]
+  before_filter :set_post_archive, only: [:show, :by_month, :index]
 
   def index
     posts = if params[:category_id]
@@ -84,10 +85,18 @@ class PostsController < ApplicationController
     redirect_to admin_index_url
   end
 
+  def by_month
+    @posts = Post.published.where('extract(month from created_at) = ?', params[:month])
+  end
+
   private
 
   def set_post
     @post = Post.find(params[:id])
+  end
+
+  def set_post_archive
+    @archive = Post.published.group_by { |t| t.created_at.month }
   end
 
   def post_params
