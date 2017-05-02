@@ -1,6 +1,6 @@
 - months.each do |month|
   - if archive.keys.include?(month)
-    %b= link_to Date::MONTHNAMES[month] + "(#{archive[4].size})", posts_by_month_post_path(id: archive[month], :month => month)
+    %b= link_to Date::MONTHNAMES[month] + "(#{archive[month].size})", posts_by_month_post_path(id: archive[month], :month => month)
   - else
     = Date::MONTHNAMES[month]
   %br
