@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-  before_filter :ensure_admin!, only: [:destroy]
+  before_action :ensure_admin!, only: [:destroy]
 
   def new
     @comment = Comment.new(post_id: params[:post_id])

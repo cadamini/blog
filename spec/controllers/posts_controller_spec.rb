@@ -22,8 +22,8 @@ RSpec.describe PostsController do
 		it 'shows published posts on index' do
 			get :index
 			category = create :category
-			@post = create :post, published: true
-			expect(assigns(:posts)).to eq [@post]
+			post = create :post, published: true, category_id: category.id
+			expect(assigns(:posts)).to eq [post]
 			expect(assigns(:categories)).to eq [category]
 		end
 
@@ -33,7 +33,7 @@ RSpec.describe PostsController do
 		end
 
 		it 'renders the edit template' do
-			get :edit, id: @post.id
+			get :edit, params: { id: @post.id }
 			expect(subject).to render_template(:edit)
 			expect(response).to have_http_status :ok
 			expect(assigns(:post)).to eq @post
@@ -47,14 +47,13 @@ RSpec.describe PostsController do
 		end
 
 		it "creates a new post" do
-			post :create, post: FactoryGirl.attributes_for(:post)
+			expect { post :create, params: { post: FactoryGirl.attributes_for(:post) } }.to change(Post,:count).by(1)
 			expect(response).to redirect_to admin_index_path
-			expect { post :create, post: FactoryGirl.attributes_for(:post) }.to change(Post,:count).by(1)
 			expect(flash[:notice]).to eq "Post successfully created"
 		end
 
 		it 'fails to create a post' do 
-			post :create, post: {title: nil, description: nil}
+			post :create, params: { post: {title: nil, description: nil} }
 			expect(flash[:error]).to eq "Post creation failed"
 			expect(subject).to render_template(:new)
 		end
@@ -64,39 +63,39 @@ RSpec.describe PostsController do
 		# rerenders new template
 
 		it 'deletes a post' do 
-			expect { delete :destroy, id: @post}.to change(Post,:count).by(-1)
+			expect { delete :destroy, params: { id: @post } }.to change(Post,:count).by(-1)
 			expect(flash[:notice]).to eq "Post successfully deleted"
 		end
 
 		it "fails to delete a post" do 
 			allow(Post).to receive(:find).and_return(@post)
 			allow(@post).to receive(:destroy).and_return(false)
-			delete :destroy, id: @post
+			delete :destroy, params: { id: @post }
 			expect(flash[:error]).to eq "Problem while deleting post"
 			expect(response).to redirect_to posts_url
 		end
 
 		it "redirects to posts#index" do
-			delete :destroy, id: @post
+			delete :destroy, params: { id: @post }
 			expect(response).to redirect_to posts_url
 		end
 
 		it 'updates the description attribute' do 
 			@post.description = 'new_description'
-			put :update, id: @post, post: FactoryGirl.attributes_for(:post, description:  'new_description')
+			put :update, params: { id: @post, post: FactoryGirl.attributes_for(:post, description:  'new_description') }
 			@post.reload
 			expect(@post.description).to eq 'new_description'
 		end
 
 		it 'fails to update a post' do			
-			put :update, id: @post.id, post: {description: nil}
+			put :update, params: { id: @post.id, post: {description: nil} }
 			expect(flash[:error]).to eq "Failed to update post with id #{@post.id}"
 			expect(response).to redirect_to posts_url
 		end
 
 		it 'redirects to the same post' do 
 			@post.description = 'new_description'
-			put :update, id: @post, post: FactoryGirl.attributes_for(:post)
+			put :update, params: { id: @post, post: FactoryGirl.attributes_for(:post) }
 			expect(subject).to redirect_to @post
 		end
 
@@ -127,7 +126,7 @@ RSpec.describe PostsController do
 		it 'renders the show template' do 
 			category = create :category
 			post = create :post, category_id: category.id
-			get :show, id: post.id
+			get :show, params: { id: post.id }
 			expect(response).to have_http_status :ok
 			expect(assigns(:post)).to eq post
 			expect(assigns(:category)).to eq 'new_category'
@@ -135,7 +134,7 @@ RSpec.describe PostsController do
 
 		it 'shows none if no category is set' do
 			post = create :post, category_id: nil
-			get :show, id: post.id
+			get :show, params: { id: post.id }
 			expect(assigns(:category)).to eq 'none'
 		end
 	end

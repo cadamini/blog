@@ -4,7 +4,7 @@ RSpec.describe CommentsController do
 
   describe "GET #new" do
     it "assigns a home, office, and mobile phone to the new contact" do
-      get :new, post_id: 1
+      get :new, params: { post_id: 1 }
       expect(assigns(:comment)).to be_a_new Comment
     end
   end
@@ -19,13 +19,13 @@ RSpec.describe CommentsController do
 
       it "creates a new comment" do
         expect{
-          post :create, post_id: @post.id, comment: FactoryGirl.attributes_for(:comment)
+          post :create, params: { post_id: @post.id, comment: FactoryGirl.attributes_for(:comment) }
         }.to change(Comment,:count).by(1)
         expect(flash[:notice]).to eq "Comment successfully created"
       end
       
       it "redirects to the new comment" do
-        post :create, post_id: @post.id, comment: FactoryGirl.attributes_for(:comment)
+        post :create, params: { post_id: @post.id, comment: FactoryGirl.attributes_for(:comment) }
         response.should redirect_to post_url(@post)
       end
     end
@@ -33,13 +33,13 @@ RSpec.describe CommentsController do
     context "with invalid attributes" do
       it "does not save the new comment" do
         expect{
-          post :create, post_id: @post.id, comment: FactoryGirl.attributes_for(:invalid_comment)
+          post :create, params: { post_id: @post.id, comment: FactoryGirl.attributes_for(:invalid_comment) }
         }.to_not change(Comment,:count)
         expect(flash[:error]).to eq "Comment creation failed"
       end
       
       it "re-renders the new method" do
-        post :create, post_id: @post.id, comment: FactoryGirl.attributes_for(:invalid_comment)
+        post :create, params: { post_id: @post.id, comment: FactoryGirl.attributes_for(:invalid_comment) }
         expect(response).to redirect_to post_url(@post.id)
       end
     end 
@@ -56,7 +56,7 @@ RSpec.describe CommentsController do
     
     it "deletes the comment" do
       expect{
-        delete :destroy, post_id: @post.id, id: @comment        
+        delete :destroy, params: { post_id: @post.id, id: @comment         }
       }.to change(Comment,:count).by(-1)
       expect(flash[:notice]).to eq "Comment successfully deleted"
     end
@@ -66,12 +66,12 @@ RSpec.describe CommentsController do
       item = double
       allow(Comment).to receive(:find).and_return(item)
       allow(item).to receive(:destroy).and_return(false)
-      delete :destroy, post_id: @post.id, id: @comment
+      delete :destroy, params: { post_id: @post.id, id: @comment }
       expect(flash[:error]).to eq "Problem while deleting comment"
     end
 
     it "redirects to post show" do
-      delete :destroy, post_id: @post.id, id: @comment
+      delete :destroy, params: { post_id: @post.id, id: @comment }
       response.should redirect_to post_url(@post)
     end
   end

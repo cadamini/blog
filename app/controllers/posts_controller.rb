@@ -1,8 +1,8 @@
 class PostsController < ApplicationController
-  before_filter :authenticate_user!, except: [:index, :show, :by_month]
-  before_filter :ensure_admin!, except: [:index, :by_month, :show, :publish, :unpublish]
-  before_filter :set_post, only: [:show, :edit, :update, :destroy, :publish, :unpublish]
-  before_filter :set_post_archive, only: [:show, :by_month, :index]
+  before_action :authenticate_user!, except: [:index, :show, :by_month]
+  before_action :ensure_admin!, except: [:index, :by_month, :show, :publish, :unpublish]
+  before_action :set_post, only: [:show, :edit, :update, :destroy, :publish, :unpublish]
+  before_action :set_post_archive, only: [:show, :by_month, :index]
 
   def index
     posts = if params[:category_id]
@@ -16,7 +16,7 @@ class PostsController < ApplicationController
                   .order('created_at DESC')
                   .paginate(page: params[:page], per_page: 3)
 
-    @categories = Category.joins(:posts).uniq.sort
+    @categories = Category.joins(:posts) #.uniq.sort
     @recent_posts = Post.published.last(5)
   end
 
