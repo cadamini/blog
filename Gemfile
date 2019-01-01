@@ -1,4 +1,4 @@
-source 'http://rubygems.org'
+source 'https://rubygems.org'
 
 gem 'rails'
 gem 'activejob_backport' # required for rails 4.1 and 4.2
