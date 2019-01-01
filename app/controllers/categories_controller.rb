@@ -7,7 +7,6 @@ class CategoriesController < ApplicationController
 
   def new
     @category = Category.new
-    respond_with(@category)
   end
 
   def edit
@@ -15,18 +14,18 @@ class CategoriesController < ApplicationController
 
   def create
     @category = Category.new(category_params)
-    @category.save
-    respond_with(@category)
+    @category.save!
+    redirect_to admin_index_path
   end
 
   def update
-    @category.update(category_params)
-    respond_with(@category)
+    @category.update!(category_params)
+    redirect_to admin_index_path
   end
 
   def destroy
-    @category.destroy
-    respond_with(@category)
+    @category.destroy!
+    redirect_to admin_index_path
   end
 
   private
