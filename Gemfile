@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails'
 gem 'activejob_backport' # required for rails 4.1 and 4.2
-gem 'pg'
+gem 'pg', '<1.0.0'
 
 group :production do
   gem 'rails_12factor'
@@ -44,4 +44,4 @@ gem 'carrierwave', '~> 0.9'
 gem 'carrierwave-dropbox'
 gem 'mini_magick'
 
-ruby "2.3.3"
+ruby "2.5.3"
