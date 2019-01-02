@@ -8,7 +8,7 @@
         = markdown(truncate(post.description, length: 275))
 
         - if post.description.length > 300
-          = link_to 'Lesen', post_path(post.id)
+          %b= link_to 'Hier weiterlesen ...', post_path(post.id)
 - else
   #post
     = 'Keine Posts gefunden.'
