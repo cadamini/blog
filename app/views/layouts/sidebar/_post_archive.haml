@@ -1,6 +1,6 @@
-- months.each do |month|
-  - if archive.keys.include?(month)
-    %b= link_to Date::MONTHNAMES[month] + "(#{archive[month].size})", archive_post_path(id: archive[month], :month => month)
-  - else
-    = Date::MONTHNAMES[month]
-  %br
+- @posts_by_month.each do |month, posts|
+  %h4 
+    = link_to "#{month.strftime('%Y %B')} (#{posts.count})", posts_by_month_path(:year=> month.year, :month => month.month)
+
+
+

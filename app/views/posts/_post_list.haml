@@ -1,4 +1,5 @@
-- unless @posts.empty?
+/ only index
+- unless @posts.nil?
   - @posts.each do |post|
     #post
       = render partial: 'title_and_subline', locals: { post: post}
@@ -10,7 +11,21 @@
         - if post.description.length > 300
           %b= link_to 'Hier weiterlesen ...', post_path(post.id)
 - else
-  #post
-    = 'Keine Posts gefunden.'
+
+  / only monthly archives
+  / TODO: rework. Use params
+  - date_from_params = DateTime.new(params['year'].to_i, params['month'].to_i, 1).in_time_zone('UTC')
+  - @posts_by_month.each do |month_id, posts|
+    - if month_id == date_from_params
+      - posts.each do |post|
+        #post
+          = render partial: 'title_and_subline', locals: { post: post}
+          .content
+            = markdown(truncate(post.description, length: 275))
+
+            - if post.description.length > 300
+              %b= link_to 'Hier weiterlesen ...', post_path(post.id)
+    - else 
+      = 'Keine Beträge gefunden'    
 
 / #pagination.centered= will_paginate @posts, page_links: false

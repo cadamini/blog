@@ -2,7 +2,6 @@ class PostsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show, :by_month]
   before_action :ensure_admin!, except: [:index, :by_month, :show, :publish, :unpublish]
   before_action :set_post, only: [:show, :edit, :update, :destroy, :publish, :unpublish]
-  before_action :set_post_archive, only: [:show, :by_month, :index]
 
   def index
     posts = if params[:category_id]
@@ -18,6 +17,7 @@ class PostsController < ApplicationController
 
     @categories = Category.joins(:posts) #.uniq.sort
     @recent_posts = Post.published.last(5)
+    @posts_by_month = Post.published.group_by { |m| m.created_at.beginning_of_month }
   end
 
   def edit
@@ -31,6 +31,7 @@ class PostsController < ApplicationController
     @category = resolve_category_by_name(@post.category_id)
     @categories = Category.joins(:posts).uniq.sort
     @recent_posts = Post.published.last(5)
+    @posts_by_month = Post.published.group_by { |m| m.created_at.beginning_of_month }
   end
 
   def create
@@ -86,17 +87,14 @@ class PostsController < ApplicationController
   end
 
   def by_month
-    @posts = Post.published.where('extract(month from created_at) = ?', params[:month])
+    @recent_posts = Post.published.last(5)
+    @posts_by_month = Post.published.group_by { |m| m.created_at.beginning_of_month }
   end
 
   private
 
   def set_post
     @post = Post.find(params[:id])
-  end
-
-  def set_post_archive
-    @archive = Post.published.group_by { |t| t.created_at.month }
   end
 
   def post_params

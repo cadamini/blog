@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
   devise_for :users
   root 'posts#index'
+  get 'posts/by_month/:year/:month' => 'posts#by_month', :as=> :posts_by_month
   resources :posts do
     resources :comments
     member do
       put 'publish'
-      put 'unpublish'
-      get 'archive', to: 'posts#by_month'
+      put 'unpublish'    
     end
   end
   resources :categories, except: [:index, :show]

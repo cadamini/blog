@@ -18,5 +18,5 @@
         .title
           ="Archiv"
         .content
-          = render partial: 'layouts/sidebar/post_archive', locals: {archive: @archive, months: (1..12).to_a }
+          = render partial: 'layouts/sidebar/post_archive', collection: @posts_by_month
 
