@@ -1,17 +1,2 @@
 = render partial: 'sidebar'
-- unless @posts.empty?
-  - @posts.each do |post|
-    #post
-      = render partial: 'title_and_subline', locals: { post: post}
-      %span
-        = image_tag post.image_url(:thumb) if post.image?
-      .content
-        = markdown(truncate(post.description, length: 275))
-
-        - if post.description.length > 300
-          = link_to 'Lesen', post_path(post.id)
-- else
-  #post
-    = 'Keine Posts gefunden.'
-
-#pagination.centered= will_paginate @posts, page_links: false
+= render partial: 'post_list'
