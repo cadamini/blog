@@ -1,9 +1,12 @@
 #post {
+  border: 1px solid #ddd;
   border-top: 3px solid gold;
-  background-color: #f4fbff;
   padding: 20px;
-  margin: -1px;
-  margin: 0px 0px 20px 0;
+  
+  .img-original-size {
+    float: left;
+    margin: 0 0 10px 0;
+  }
 }
 
 .subline {

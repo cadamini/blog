@@ -9,8 +9,14 @@
 @import "logo";
 @import "sidebar";
 
+@import url('https://fonts.googleapis.com/css?family=Thasadith'); 
+
+* {
+  font-family: 'Thasadith';
+}
+
 body {
-  background-color: #f4fbff;
+  background-color: #fff;
 }
 
 .background {
@@ -63,14 +69,15 @@ h2 {
 }
 
 #main-content {
-  border-right: 1px dotted #DDD;
-  padding: 50px;
+  padding: 20px 20px 20px 35px;
 }
 
 #main-content img {
   vertical-align: middle;
-  max-width: 50%;
-  display: block;
+  max-width: 100%;
+  margin: 0 10px 0 0;
+  border: 1px solid #ddd;
+  border-radius: 5px;
 }
 
 .footer {
