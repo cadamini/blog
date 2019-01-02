@@ -3,7 +3,7 @@
   = render partial: 'title_and_subline', locals: { post: @post}
   
   .post-description
-    %span= image_tag @post.image_url(:post_header)  if @post.image?
+    .img-original-size= image_tag @post.image_url(:post_header)  if @post.image?
     = markdown(@post.description)
 
 #post
