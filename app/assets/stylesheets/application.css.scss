@@ -15,6 +15,18 @@
   font-family: 'Thasadith';
 }
 
+html {
+  font-size: 16px;
+}
+
+h1, h2, h3, h4, h5, h6 {font-weight:normal;color:#111;}
+h1 {font-size:2.6rem;line-height:1;margin-bottom:0.2em;}
+h2 {font-size:2.2rem;margin-bottom:0.2em;}
+h3 {font-size:1.8rem;line-height:1;margin-bottom:0.2em;}
+h4 {font-size:1.2rem;line-height:1.25;margin-bottom:0.2em;}
+h5 {font-size:1rem;font-weight:bold;margin-bottom:0.2em;}
+h6 {font-size:1rem;font-weight:bold;}
+
 body {
   background-color: #fff;
 }
@@ -39,19 +51,6 @@ body {
 
 .search {
   clear: both;
-}
-
-h1 {
-  font-size: 24px;
-  line-height: 28px;
-  margin: 0 10px 0 0;
-}
-
-h2 {
-  font-size: 22px;
-  font-weight: 800;
-  line-height: 24px;
-  margin: 0 0 24px;
 }
 
 .previous_page, .next_page, {
