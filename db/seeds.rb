@@ -11,9 +11,9 @@ categories = Category.all.map(&:name)
 200.times do |index|
   Post.create!(title: Faker::Food.spice,
   	           created_at: Date.new(Date.today.year, rand(1..12), rand(1..28)),
-               description: Faker::Lorem.paragraph(2, false, 10).chop,
+               description: Faker::Lorem.paragraph(20, false, 10).chop,
                image: "site.com/here_is_a_picture_of_cardamom.jpg",
-  			   category_id: Category.find_by(name: categories[rand(0..categories.size)]).id,
+  			   category_id: Category.find_by(name: categories[rand(0..categories.size-1)]).id,
   			   published: true
   			  )
 end
