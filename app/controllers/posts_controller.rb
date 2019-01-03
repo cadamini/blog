@@ -76,7 +76,9 @@ class PostsController < ApplicationController
   end
 
   def by_month
-    @posts = Post.published.where('extract(month from created_at) = ?', params[:month])
+    @posts = Post.published
+                 .where('extract(month from created_at) = ?', params[:month])
+                 .paginate(page: params[:page], per_page: 3)
     @archive = published_posts_grouped_by_month
   end
 
