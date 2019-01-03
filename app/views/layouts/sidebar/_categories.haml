@@ -1,1 +1,4 @@
-.category=link_to category.name, posts_path(category_id: category.id)
+- category.each do |c|
+  .category
+    =link_to "#{c.name} (#{category_count[c.id]})", posts_path(category_id: c.id)
+

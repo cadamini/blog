@@ -19,6 +19,10 @@ class Post < ActiveRecord::Base
   def self.published
     where(published: true)
   end
+
+  def self.published_count_per_category
+    published.group(:category_id).count
+  end
 end
 
 
