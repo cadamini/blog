@@ -29,6 +29,7 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'simplecov'
   gem 'rails-controller-testing'
+  gem 'faker'
 end
 
 group :production do
