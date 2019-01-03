@@ -5,7 +5,7 @@ class PostsController < ApplicationController
   def index
     @posts = all_posts_or_by_params
               .order('created_at DESC')
-              .paginate(page: params[:page], per_page: 3)
+              .paginate(page: params[:page], per_page: 20)
     @archive = published_posts_grouped_by_month
   end
 
