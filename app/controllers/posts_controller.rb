@@ -61,20 +61,6 @@ class PostsController < ApplicationController
     Category.find(category_id).name
   end
 
-  def publish
-    post = find_post_by_id
-    post.update_attributes(published: true)
-    flash[:notice] = "Post #{@post.title} published"
-    redirect_to admin_index_url
-  end
-
-  def unpublish
-    post = find_post_by_id
-    post.update_attributes(published: false)
-    flash[:notice] = "Post #{@post.title} unpublished"
-    redirect_to admin_index_url
-  end
-
   def by_month
     @posts = Post.published
                  .where('extract(month from created_at) = ?', params[:month])

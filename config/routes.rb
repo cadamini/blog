@@ -4,8 +4,7 @@ Rails.application.routes.draw do
   resources :posts do
     resources :comments
     member do
-      put 'publish'
-      put 'unpublish'
+      patch 'toggle_visibility', to: "admin#toggle_visibility", as: :un_publish
       get 'archive', to: 'posts#by_month'
     end
   end
@@ -17,7 +16,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :admin
+  resources :admin, only: [:index] 
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
