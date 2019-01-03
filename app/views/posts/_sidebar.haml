@@ -8,12 +8,12 @@
         .title
           ="Kategorien"
         .content
-          = render partial: 'layouts/sidebar/categories', collection: @categories, as: :category
+          = render partial: 'layouts/sidebar/categories', collection: Category.joins(:posts).uniq.sort, as: :category
       .widget
         .title
           ="Letzte Posts"
         .content
-          = render partial: 'layouts/sidebar/recent_posts', collection: @recent_posts, as: :post
+          = render partial: 'layouts/sidebar/recent_posts', collection: Post.published.last(5), as: :post
       .widget
         .title
           ="Archiv"

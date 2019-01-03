@@ -2,15 +2,11 @@ require "rails_helper"
 
 RSpec.describe PostsController do
 	
-	let(:valid_params) {
-		{"title"=>"John", "description"=>"Doe"}
-	}
-
 	describe '#admin' do 
 		before do	
 			allow(controller).to receive(:authenticate_user!).and_return true
 			allow(controller).to receive(:ensure_admin!).and_return true
-			@post = create :post
+			@post = create :post, title: "John John", description: "Doe Doe"
 		end
 
 		it 'renders the index template' do 
@@ -21,10 +17,8 @@ RSpec.describe PostsController do
 
 		it 'shows published posts on index' do
 			get :index
-			category = create :category
-			post = create :post, published: true, category_id: category.id
+			post = create :post, published: true, category_id: nil
 			expect(assigns(:posts)).to eq [post]
-			expect(assigns(:categories)).to eq [category]
 		end
 
 		it 'does not unpublished posts on index' do
@@ -49,12 +43,12 @@ RSpec.describe PostsController do
 		it "creates a new post" do
 			expect { post :create, params: { post: FactoryGirl.attributes_for(:post) } }.to change(Post,:count).by(1)
 			expect(response).to redirect_to admin_index_path
-			expect(flash[:notice]).to eq "Post successfully created"
+			expect(flash[:notice]).to eq "Post successfully created."
 		end
 
 		it 'fails to create a post' do 
 			post :create, params: { post: {title: nil, description: nil} }
-			expect(flash[:error]).to eq "Post creation failed"
+			expect(flash[:error]).to eq 'Post creation failed.'
 			expect(subject).to render_template(:new)
 		end
 
@@ -64,20 +58,20 @@ RSpec.describe PostsController do
 
 		it 'deletes a post' do 
 			expect { delete :destroy, params: { id: @post } }.to change(Post,:count).by(-1)
-			expect(flash[:notice]).to eq "Post successfully deleted"
+			expect(flash[:notice]).to eq 'Post successfully deleted.'
 		end
 
 		it "fails to delete a post" do 
 			allow(Post).to receive(:find).and_return(@post)
 			allow(@post).to receive(:destroy).and_return(false)
 			delete :destroy, params: { id: @post }
-			expect(flash[:error]).to eq "Problem while deleting post"
-			expect(response).to redirect_to posts_url
+			expect(flash[:error]).to eq 'Post deletion failed.'
+			expect(response).to redirect_to admin_index_path
 		end
 
 		it "redirects to posts#index" do
 			delete :destroy, params: { id: @post }
-			expect(response).to redirect_to posts_url
+			expect(response).to redirect_to admin_index_path
 		end
 
 		it 'updates the description attribute' do 
@@ -89,8 +83,8 @@ RSpec.describe PostsController do
 
 		it 'fails to update a post' do			
 			put :update, params: { id: @post.id, post: {description: nil} }
-			expect(flash[:error]).to eq "Failed to update post with id #{@post.id}"
-			expect(response).to redirect_to posts_url
+			expect(flash[:error]).to eq 'Post update failed.'
+			expect(response).to redirect_to @post
 		end
 
 		it 'redirects to the same post' do 
