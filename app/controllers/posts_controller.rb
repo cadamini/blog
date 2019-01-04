@@ -20,6 +20,7 @@ class PostsController < ApplicationController
   def show
     @post = find_post_by_id
     @category = category_name_for(@post.category_id)
+    @related_posts = Post.of_category(@post.category_id)
     @archive = published_posts_grouped_by_month
   end
 

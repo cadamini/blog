@@ -7,6 +7,8 @@ class Post < ActiveRecord::Base
   attr_accessor :image, :remote_image_url
   mount_uploader :image, ImageUploader
 
+  scope :of_category, ->(category) { where(category_id: category) }
+
   # most simple search, need to refined
   def self.search(params)
     if params
@@ -24,5 +26,3 @@ class Post < ActiveRecord::Base
     published.group(:category_id).count
   end
 end
-
-
