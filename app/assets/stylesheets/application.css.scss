@@ -3,7 +3,6 @@
 @import "font-awesome";
 @import "link";
 @import "comments";
-@import "navbar";
 @import "posts";
 @import "widgets";
 @import "logo";
@@ -83,10 +82,13 @@ body {
 .footer {
   position: relative;
   width: 100%;
-  border-bottom: 3px solid gold;
   border-top: 1px solid #ddd;
-  background-color: white;
-  padding: 15px;
+  background: black;
+  height: 60px;
+  color: white;
+  a {
+    color: white;
+  }
 }
 
 // for comments and sidebar

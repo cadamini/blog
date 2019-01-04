@@ -1,8 +1,6 @@
 .centered
   = fa_icon "copyright"
   = 'Christian Adamini 2017'
-  = "| "
-  = link_to 'Background Image By Freepik', 'http://www.freepik.com/free-vector/pattern-with-baby-elements_795080.htm'
 
   %br
     - unless current_user
@@ -12,3 +10,6 @@
       = 'Logged in as:'
       = current_user.email
       = link_to 'Logout', destroy_user_session_path, method: :delete
+
+    - if current_user && current_user.admin?
+      = link_to 'Administration', admin_index_path

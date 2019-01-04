@@ -17,8 +17,6 @@
         .pull-right= link_to 'delete', post_comment_path(c.post_id, c), :method => :delete, data: { confirm: "Are you sure?" } if logged_in_as_admin?
 
       .content
-       
-          
         %br= c.content
 
   .form-group
