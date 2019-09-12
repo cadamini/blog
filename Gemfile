@@ -20,7 +20,7 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'will_paginate', '~> 3.1.0'
-gem 'devise'
+gem "devise", '>= 4.7.1'
 gem 'bcrypt', platforms: :ruby, :require => "bcrypt"
 gem 'redcarpet'
 
