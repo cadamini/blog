@@ -1,4 +1,4 @@
-class AddCommentsCountToPost < ActiveRecord::Migration
+class AddCommentsCountToPost < ActiveRecord::Migration[5.0]
  def self.up
     add_column :posts, :comments_count, :integer, :default => 0
     
