@@ -44,6 +44,15 @@
   padding: 40px;
 }
 
+/* post meta info */
+
+.post--meta {
+  background: #f0ecec;
+  border-radius: 5px;
+  padding: 2px 5px 2px 5px;
+  font-weight: lighter;
+}
+
 /* post list */
 
 .flexbox--wrapper {
@@ -54,7 +63,9 @@
 }
 
 .post-list--item {
-  //border: 1px solid grey;
+  flex-grow: 1;
+  flex-basis: 0;
+  justify-content: flex-end;
   border-radius: 5px;
   padding: 0px 20px 10px 20px;
   box-shadow: 4px 2px 5px 2px lightgrey;

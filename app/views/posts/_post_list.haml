@@ -2,12 +2,19 @@
   .flexbox--wrapper
     - @posts.each do |post|
       .post-list--item
-        = render partial: 'title_and_subline', locals: { post: post}
-        = image_tag post.image_url(:thumb) if post.image?
+        %h1
+          - if logged_in_as_admin?
+            =link_to edit_post_path(post) do 
+              = fa_icon "edit"
+          = link_to post.title, post_path(post.id)
         
-        = markdown(truncate(post.description, length: 275))
 
-        - if post.description.length > 300
+        = render partial: 'meta', locals: { post: post}
+
+        = image_tag post.image_url(:thumb) if post.image?
+        = markdown(truncate(post.description, length: 200))
+
+        - if post.description.length > 200
           %b= link_to 'Hier weiterlesen ...', post_path(post.id)
 - else
   #post

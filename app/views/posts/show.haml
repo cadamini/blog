@@ -1,6 +1,8 @@
 = render partial: 'sidebar'
+
 #post
-  = render partial: 'title_and_subline', locals: { post: @post}
+  %h1
+    = link_to @post.title, post_path(@post.id)
   
   .post-description
     .img-original-size= image_tag @post.image_url(:post_header)  if @post.image?

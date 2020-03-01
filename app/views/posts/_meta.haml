@@ -1,17 +1,10 @@
-%h1
-  = link_to post.title, post_path(post.id)
-%p.subline
+%p.post--meta
   = post.created_at.strftime("%d.%b %Y")
   = " | Kommentare: #{post.comments_count}"
 
   - unless post.category_id.nil?
-    = " | In: "
     =link_to resolve_category_by_name(post.category_id), posts_path(:category_id => post.category_id)
 
   %span
     = link_to "https://www.facebook.com/sharer/sharer.php?u=#{request.original_url}" do
       = fa_icon 'facebook-official'
-      = 'Teilen'
-
-  %span
-    =link_to "Editieren", edit_post_path(post) if logged_in_as_admin?
