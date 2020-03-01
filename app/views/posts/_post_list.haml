@@ -1,10 +1,10 @@
 - unless @posts.empty?
-  - @posts.each do |post|
-    #post
-      = render partial: 'title_and_subline', locals: { post: post}
-      = image_tag post.image_url(:thumb) if post.image?
-      
-      .content
+  .flexbox--wrapper
+    - @posts.each do |post|
+      .post-list--item
+        = render partial: 'title_and_subline', locals: { post: post}
+        = image_tag post.image_url(:thumb) if post.image?
+        
         = markdown(truncate(post.description, length: 275))
 
         - if post.description.length > 300

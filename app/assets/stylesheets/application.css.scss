@@ -1,104 +1,53 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "font-awesome";
-@import "link";
-@import "comments";
-@import "posts";
-@import "widgets";
-@import "logo";
-@import "sidebar";
-@import "related-items";
 
-@import url('https://fonts.googleapis.com/css?family=Thasadith'); 
+/* logo */
 
-* {
-  font-family: 'Thasadith';
-}
-
-html {
-  font-size: 16px;
-}
-
-h1, h2, h3, h4, h5, h6 {font-weight:normal;color:#111;}
-h1 {font-size:2.6rem;line-height:1;margin-bottom:0.2em;}
-h2 {font-size:2.2rem;margin-bottom:0.2em;}
-h3 {font-size:1.8rem;line-height:1;margin-bottom:0.2em;}
-h4 {font-size:1.2rem;line-height:1.25;margin-bottom:0.2em;}
-h5 {font-size:1rem;font-weight:bold;margin-bottom:0.2em;}
-h6 {font-size:1rem;font-weight:bold;}
-
-body {
-  background-color: #fff;
-}
-
-.background {
-  height: 50px;
-  background: image-url('bg.JPG') repeat center;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-}
-
-.container-fluid {
-  padding: 0px;
-  margin: 0 auto;
-}
-
-.flash_area {
+.logo {
+  height: 300px;
+  padding: 20px;
   text-align: center;
-  background-color: whitesmoke;
-}
+  background-image: url("patrick-fore-0gkw_9fy0eQ-unsplash.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
 
-.search {
-  clear: both;
-}
-
-.previous_page, .next_page, {
-  padding: 2px;
-  border: 1px solid #eee;
-  background-color: white;
-}
-
-.disabled {
-  color: #eee;
-}
-
-.centered {
-  text-align: center;
-}
-
-#main-content {
-  padding: 20px 20px 20px 35px;
-}
-
-#main-content img {
-  vertical-align: middle;
-  max-width: 100%;
-  margin: 0 10px 0 0;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-}
-
-.footer {
-  position: relative;
-  width: 100%;
-  border-top: 1px solid #ddd;
-  background: black;
-  height: 60px;
-  color: white;
   a {
-    color: white;
+    text-decoration: none;
   }
 }
 
-// for comments and sidebar
-.content {
-  margin: 0 0 20px 0;
+.logo--main {
+  font-size: 64px;
+  color: yellow;
+  text-shadow: -1px -1px 0 orange, 1px -1px 0 orange, -1px 1px 0 orange, 1px 1px 0 orange;
 }
 
-@media only screen and (max-width: 1170px) {
+.logo--subline {
+  font-size: 24px;
+  color: orange;
+  margin: -15px 0px 0px 0px;
 }
 
-@media only screen and (max-width: 768px) {
+/* main-content */
+
+.main-content {
+  padding: 40px;
 }
 
+/* post list */
+
+.flexbox--wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+}
+
+.post-list--item {
+  border: 1px solid grey;
+  border-radius: 5px;
+  padding: 0px 20px 10px 20px;
+  box-shadow: 4px 2px 5px 2px lightgrey;
+  margin: 0 5px 0 5px;
+}
