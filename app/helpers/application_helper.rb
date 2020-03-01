@@ -3,7 +3,6 @@ require 'redcarpet'
 module ApplicationHelper
   def markdown(text)
     options = {
-      escape_html: false,
       filter_html: true,
       hard_wrap:       true,
       escape_html: true,
