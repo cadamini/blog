@@ -3,4 +3,13 @@
 
 require File.expand_path('../config/application', __FILE__)
 
+desc "create default admin user"
+task :createadmin => :environment do
+  admin = User.create(
+    :email => "admin@example.com", 
+    :password => "mypassword", 
+    )
+  admin.save!
+end
+
 Rails.application.load_tasks
