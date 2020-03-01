@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
 
   # refactor: check for admin column true
   def admin?
-    email == 'adamini@gmx.de'
+    email == 'admin@example.com'
   end
 end
 
