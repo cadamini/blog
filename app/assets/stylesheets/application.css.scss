@@ -2,6 +2,19 @@
 @import "bootstrap";
 @import "font-awesome";
 
+/* overall styles */
+
+* {
+  a {
+    color: black
+  }
+
+  a:hover {
+    color: black;
+    text-decoration: none;
+  }
+}
+
 /* logo */
 
 .logo {
@@ -11,10 +24,6 @@
   background-image: url("patrick-fore-0gkw_9fy0eQ-unsplash.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-
-  a {
-    text-decoration: none;
-  }
 }
 
 .logo--main {
@@ -45,9 +54,17 @@
 }
 
 .post-list--item {
-  border: 1px solid grey;
+  //border: 1px solid grey;
   border-radius: 5px;
   padding: 0px 20px 10px 20px;
   box-shadow: 4px 2px 5px 2px lightgrey;
   margin: 0 5px 0 5px;
+
+  a {
+    color: black;
+  }
+
+  h1 {
+    font-size: 1em
+  }
 }
