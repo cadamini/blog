@@ -3,36 +3,25 @@
   %link{:href => "https://fonts.googleapis.com/css?family=Indie+Flower|Open+Sans:400,600i", :rel => "stylesheet"}/
   %link{:href => "https://fonts.googleapis.com/css?family=Indie+Flower|Open+Sans:400,600i", :rel => "stylesheet"}/
 
-  = stylesheet_link_tag :application, :comments, :navbar
+  = stylesheet_link_tag :application
   = javascript_include_tag :application
   = csrf_meta_tag
 
-#logo
-  .image1
-  .image2
-  .image3
-  .image4
-  .image5
-    = link_to posts_path do 
-      .text
-        = "#ich#und#mein#blog"
-      .subline
-        %small="Entwickeln, Bloggen, Lernen"
-  .image6
+.logo
+  = link_to posts_path do 
+    .logo--main
+      = "#ichundmeinblog"
+    .logo--subline
+      %small="Entwickeln, Bloggen, Lernen"
 
 .flash_area
   - if flash
     = flash[:notice]
     = flash[:error]
 
+.main-content
+  = yield
+  = yield(:sidebar)
 
-.container-fluid
-  .content
-    .row
-      #main-content.col-md-9
-        = yield
-      #sidebar.col-md-3.full-height
-        = yield(:sidebar)
-
-  .footer
-    = render partial: 'layouts/footer'
+.footer
+  = render partial: 'layouts/footer'

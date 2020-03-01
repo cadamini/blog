@@ -1,22 +1,16 @@
 - content_for :sidebar do
-  .centered
-    #widget-container
-      .widget
-        .content
-          = render partial: 'layouts/sidebar/search_form'
-      .widget
-        .title
-          ="Kategorien"
-        .content
-          = render partial: 'layouts/sidebar/categories', locals: { category: Category.joins(:posts).uniq.sort, category_count: Post.published_count_per_category }
-      .widget
-        .title
-          ="Letzte Posts"
-        .content
-          = render partial: 'layouts/sidebar/recent_posts', collection: Post.published.last(5), as: :post
-      .widget
-        .title
-          ="Archiv"
-        .content
-          = render partial: 'layouts/sidebar/post_archive', locals: {archive: @archive, months: (1..12).to_a }
+  .sidebar--wrapper 
+    .sidebar--item
+      = render partial: 'layouts/sidebar/search_form'
+    .sidebar--item 
+      %h4= 'Kategorien:'
+      = render partial: 'layouts/sidebar/categories', locals: { category: Category.joins(:posts).uniq.sort, category_count: Post.published_count_per_category }
+    .sidebar--item
+      %h4= 'Letzte Posts' 
+      = render partial: 'layouts/sidebar/recent_posts', collection: Post.published.last(5), as: :post
+    .sidebar--item 
+      %h4= 'Archiv'
+      = render partial: 'layouts/sidebar/post_archive', locals: {archive: @archive, months: (1..12).to_a }
 
+ 
+          

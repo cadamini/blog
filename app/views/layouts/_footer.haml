@@ -1,15 +1,11 @@
-.centered
-  = fa_icon "copyright"
-  = 'Christian Adamini 2017'
+- unless current_user
+  = link_to 'Login', new_user_session_path
 
+- if current_user
+  = "Logged in as: #{current_user.email}"
   %br
-    - unless current_user
-      = link_to 'Login', new_user_session_path
+  = link_to 'Logout', destroy_user_session_path, method: :delete
 
-    - if current_user
-      = 'Logged in as:'
-      = current_user.email
-      = link_to 'Logout', destroy_user_session_path, method: :delete
-
-    - if current_user && current_user.admin?
-      = link_to 'Administration', admin_index_path
+- if current_user && current_user.admin?
+  %br
+  = link_to 'Administration', admin_index_path
