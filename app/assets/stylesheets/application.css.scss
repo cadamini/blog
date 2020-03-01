@@ -79,3 +79,16 @@
     font-size: 1em
   }
 }
+
+#post {
+  padding: 0px 20px 10px 20px;
+  margin: 0 5px 0 5px;
+}
+
+.post--comments {
+  padding: 20px;
+}
+
+.post--content {
+  border-bottom: 1px solid lightgrey;
+}

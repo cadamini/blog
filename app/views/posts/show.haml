@@ -1,34 +1,34 @@
-= render partial: 'sidebar'
-
 #post
   %h1
     = link_to @post.title, post_path(@post.id)
   
-  .post-description
-    .img-original-size= image_tag @post.image_url(:post_header)  if @post.image?
+  %span
+    = render partial: 'meta', locals: { post: @post}
+    / .img-original-size= image_tag @post.image_url(:post_header)  if @post.image?
+
+  .post--content
     = markdown(@post.description)
 
-#post
-  %b= "#{@post.comments.count} Kommentare:"
+  .post--comments
+    %b= "#{@post.comments.count} Kommentare:"
 
-  - if @post.comments.any?
-    - @post.comments.each do |c|
+    - if @post.comments.any?
+      - @post.comments.each do |c|
 
-      .subline
-        = "#{c.created_at.strftime("%Y-%m-%d")}"
-        .pull-right= link_to 'delete', post_comment_path(c.post_id, c), :method => :delete, data: { confirm: "Are you sure?" } if logged_in_as_admin?
+        .subline
+          = "#{c.created_at.strftime("%Y-%m-%d")}"
+          .pull-right= link_to 'delete', post_comment_path(c.post_id, c), :method => :delete, data: { confirm: "Are you sure?" } if logged_in_as_admin?
 
-      .content
-        %br= c.content
+        .content
+          %br= c.content
 
   .form-group
     = form_for :comment, url: post_comments_path(post_id: @post.id), action: :new do |f|
-
       = f.text_area :content, rows: 4, cols: 40, placeholder: 'Schreib einen Kommentar', class: 'form-control', id: 'comment'
       %br= f.submit :Absenden, class: 'btn btn-default pull-right'
 
-.related-items
-  %h6= 'Ähnliche Beiträge'
-  %ul
-    - @related_posts.each do |post|  
-      %li= link_to post.title
+  / .related-items
+  /   %h6= 'Ähnliche Beiträge'
+  /   %ul
+  /     - @related_posts.each do |post|  
+  /       %li= link_to post.title
